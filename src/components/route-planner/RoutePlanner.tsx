@@ -94,7 +94,7 @@ export function RoutePlanner() {
           <div className="flex items-center gap-3 mb-4">
             <Route className="h-10 w-10 md:h-12 md:w-12 text-primary" />
             <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground">
-              OpenPromptRoute
+              Camping Route
             </h1>
           </div>
           <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl">
@@ -211,7 +211,7 @@ export function RoutePlanner() {
 
       {/* Footer */}
       <footer className="border-t border-border mt-12 py-8 text-center text-sm text-muted-foreground">
-        <p>OpenPromptRoute – Erstellt mit ❤️ für Wohnmobil-Enthusiasten</p>
+        <p>Camping Route – Erstellt mit ❤️ für Wohnmobil-Enthusiasten</p>
       </footer>
     </div>
   );
