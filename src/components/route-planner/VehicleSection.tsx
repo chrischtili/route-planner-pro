@@ -88,8 +88,8 @@ export function VehicleSection({ formData, onChange }: VehicleSectionProps) {
           id="solarPower"
           label="Solaranlage"
           value={parseFloat(formData.solarPower) || 300}
-          min={0}
-          max={600}
+          min={50}
+          max={1000}
           step={50}
           unit="W"
           onChange={(v) => onChange({ solarPower: v.toString() })}
@@ -100,7 +100,7 @@ export function VehicleSection({ formData, onChange }: VehicleSectionProps) {
           label="Aufbaubatterie"
           value={parseFloat(formData.batteryCapacity) || 200}
           min={50}
-          max={400}
+          max={1000}
           step={25}
           unit="Ah"
           onChange={(v) => onChange({ batteryCapacity: v.toString() })}
