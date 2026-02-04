@@ -80,6 +80,28 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
                 new Date(2024, 11, 25), // 1. Weihnachtsfeiertag
                 new Date(2024, 11, 26), // 2. Weihnachtsfeiertag
               ]}
+              dayClassName={(date) => {
+                const holidays = [
+                  new Date(2024, 0, 1),   // Neujahr
+                  new Date(2024, 2, 29),  // Karfreitag
+                  new Date(2024, 3, 1),   // Ostermontag
+                  new Date(2024, 4, 1),   // Tag der Arbeit
+                  new Date(2024, 4, 9),   // Christi Himmelfahrt
+                  new Date(2024, 4, 20),  // Pfingstmontag
+                  new Date(2024, 5, 30),  // Fronleichnam
+                  new Date(2024, 9, 3),   // Tag der Deutschen Einheit
+                  new Date(2024, 11, 25), // 1. Weihnachtsfeiertag
+                  new Date(2024, 11, 26), // 2. Weihnachtsfeiertag
+                ];
+                
+                const isHoliday = holidays.some(holiday => 
+                  date.getDate() === holiday.getDate() &&
+                  date.getMonth() === holiday.getMonth() &&
+                  date.getFullYear() === holiday.getFullYear()
+                );
+                
+                return isHoliday ? 'highlighted' : undefined;
+              }}
               popperClassName="react-datepicker-popper"
               popperPlacement="bottom-start"
               popperModifiers={[
@@ -132,6 +154,28 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
                 new Date(2024, 11, 25), // 1. Weihnachtsfeiertag
                 new Date(2024, 11, 26), // 2. Weihnachtsfeiertag
               ]}
+              dayClassName={(date) => {
+                const holidays = [
+                  new Date(2024, 0, 1),   // Neujahr
+                  new Date(2024, 2, 29),  // Karfreitag
+                  new Date(2024, 3, 1),   // Ostermontag
+                  new Date(2024, 4, 1),   // Tag der Arbeit
+                  new Date(2024, 4, 9),   // Christi Himmelfahrt
+                  new Date(2024, 4, 20),  // Pfingstmontag
+                  new Date(2024, 5, 30),  // Fronleichnam
+                  new Date(2024, 9, 3),   // Tag der Deutschen Einheit
+                  new Date(2024, 11, 25), // 1. Weihnachtsfeiertag
+                  new Date(2024, 11, 26), // 2. Weihnachtsfeiertag
+                ];
+                
+                const isHoliday = holidays.some(holiday => 
+                  date.getDate() === holiday.getDate() &&
+                  date.getMonth() === holiday.getMonth() &&
+                  date.getFullYear() === holiday.getFullYear()
+                );
+                
+                return isHoliday ? 'highlighted' : undefined;
+              }}
               popperClassName="react-datepicker-popper"
               popperPlacement="bottom-start"
               popperModifiers={[
