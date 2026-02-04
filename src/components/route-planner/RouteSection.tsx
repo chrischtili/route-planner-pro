@@ -49,7 +49,7 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
               value={formData.startDate}
               min={new Date().toISOString().split('T')[0]}
               onChange={(e) => onChange({ startDate: e.target.value, endDate: e.target.value })}
-              className="w-full [&::-webkit-datetime-edit-year-field]:text-left [&::-webkit-datetime-edit-month-field]:text-left [&::-webkit-datetime-edit-day-field]:text-left [&::-webkit-datetime-edit-text]:text-left"
+              className="w-full max-w-full [&::-webkit-datetime-edit-year-field]:text-left [&::-webkit-datetime-edit-month-field]:text-left [&::-webkit-datetime-edit-day-field]:text-left [&::-webkit-datetime-edit-text]:text-left [&::-webkit-datetime-edit]:w-full [&::-webkit-datetime-edit]:max-w-full"
             />
           </div>
         </div>
@@ -63,7 +63,7 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
               value={formData.endDate}
               min={formData.startDate || new Date().toISOString().split('T')[0]}
               onChange={(e) => onChange({ endDate: e.target.value })}
-              className="w-full [&::-webkit-datetime-edit-year-field]:text-left [&::-webkit-datetime-edit-month-field]:text-left [&::-webkit-datetime-edit-day-field]:text-left [&::-webkit-datetime-edit-text]:text-left"
+              className="w-full max-w-full [&::-webkit-datetime-edit-year-field]:text-left [&::-webkit-datetime-edit-month-field]:text-left [&::-webkit-datetime-edit-day-field]:text-left [&::-webkit-datetime-edit-text]:text-left [&::-webkit-datetime-edit]:w-full [&::-webkit-datetime-edit]:max-w-full"
             />
           </div>
         </div>
