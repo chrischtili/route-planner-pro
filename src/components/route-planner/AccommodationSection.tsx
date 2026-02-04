@@ -61,7 +61,7 @@ export function AccommodationSection({ formData, onChange, onCheckboxChange }: A
             <FormSlider
               id="avgCampsitePriceMax"
               label=""
-              value={parseInt(formData.avgCampsitePriceMax) || 50}
+              value={formData.avgCampsitePriceMax ? parseInt(formData.avgCampsitePriceMax) : 0}
               min={0}
               max={150}
               step={5}
