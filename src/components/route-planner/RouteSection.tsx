@@ -42,30 +42,26 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
 
         <div className="space-y-2">
           <Label htmlFor="startDate">Abreise</Label>
-          <div className="relative h-[42px] mx-auto max-w-[300px]">
-            <Input
-              id="startDate"
-              type="date"
-              value={formData.startDate}
-              min={new Date().toISOString().split('T')[0]}
-              onChange={(e) => onChange({ startDate: e.target.value, endDate: e.target.value })}
-              className="w-full h-[42px] [&::-webkit-datetime-edit]:justify-center [&::-webkit-datetime-edit-year-field]:text-left [&::-webkit-datetime-edit-month-field]:text-left [&::-webkit-datetime-edit-day-field]:text-left [&::-webkit-datetime-edit-text]:text-left"
-            />
-          </div>
+          <Input
+            id="startDate"
+            type="date"
+            value={formData.startDate}
+            min={new Date().toISOString().split('T')[0]}
+            onChange={(e) => onChange({ startDate: e.target.value, endDate: e.target.value })}
+            className="w-full [&::-webkit-datetime-edit-year-field]:text-left [&::-webkit-datetime-edit-month-field]:text-left [&::-webkit-datetime-edit-day-field]:text-left [&::-webkit-datetime-edit-text]:text-left"
+          />
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="endDate">Ankunft</Label>
-          <div className="relative h-[42px] mx-auto max-w-[300px]">
-            <Input
-              id="endDate"
-              type="date"
-              value={formData.endDate}
-              min={formData.startDate || new Date().toISOString().split('T')[0]}
-              onChange={(e) => onChange({ endDate: e.target.value })}
-              className="w-full h-[42px] [&::-webkit-datetime-edit]:justify-center [&::-webkit-datetime-edit-year-field]:text-left [&::-webkit-datetime-edit-month-field]:text-left [&::-webkit-datetime-edit-day-field]:text-left [&::-webkit-datetime-edit-text]:text-left"
-            />
-          </div>
+          <Input
+            id="endDate"
+            type="date"
+            value={formData.endDate}
+            min={formData.startDate || new Date().toISOString().split('T')[0]}
+            onChange={(e) => onChange({ endDate: e.target.value })}
+            className="w-full [&::-webkit-datetime-edit-year-field]:text-left [&::-webkit-datetime-edit-month-field]:text-left [&::-webkit-datetime-edit-day-field]:text-left [&::-webkit-datetime-edit-text]:text-left"
+          />
         </div>
 
         <div className="space-y-2">
