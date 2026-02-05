@@ -15,8 +15,6 @@ Camping Route ist ein KI-gestützter Wohnmobil-Routenplaner, der dir hilft, die 
 - ✅ 6 Hauptkategorien: Route, Fahrzeug, Übernachtung, Aktivitäten, KI-Einstellungen
 - ✅ Aktualisierte KI-Modellauswahl mit Preisinformationen
 - ✅ Responsive Design für alle Geräte
-- ✅ Zentrierte Überschrift mit optimiertem Abstand
-- ✅ Favicon als Social Media Preview Image
 
 ## Installation
 
