@@ -91,11 +91,13 @@ export function RoutePlanner() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-foreground/40 to-background" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-          <div className="flex items-center gap-3 mb-4">
-            <img src="/favicon-original-final.svg" alt="Camping Route Logo" className="h-20 w-20 md:h-24 md:w-24" />
-            <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground">
-              Camping Route
-            </h1>
+          <div className="flex flex-col items-center mb-4">
+            <div className="flex items-center">
+              <img src="/favicon-original-final.svg" alt="Camping Route Logo" className="h-20 w-20 md:h-24 md:w-24 -mr-2" />
+              <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground">
+                Camping Route
+              </h1>
+            </div>
           </div>
           <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl">
             Dein KI-Wohnmobil-Routenplaner – Plane deine perfekte Reise mit umfassenden Informationen
