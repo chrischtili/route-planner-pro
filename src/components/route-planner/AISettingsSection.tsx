@@ -27,7 +27,6 @@ const providerModels = {
   mistral: [
     { value: 'mistral-large-latest',  label: 'Mistral Large (Input/Output: $2/$6 pro 1M Tokens)' },
     { value: 'mistral-small-latest',  label: 'Mistral Small (Input/Output: $0.20/$0.60 pro 1M Tokens)' },
-    { value: 'codestral-latest',      label: 'Codestral (Input/Output: $0.20/$0.60 pro 1M Tokens)' },
     { value: 'pixtral-12b-latest',    label: 'Pixtral 12B (Input/Output: $0.15/$0.15 pro 1M Tokens)' },
   ],
   google: [
