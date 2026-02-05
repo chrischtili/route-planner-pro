@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SectionCard } from "./SectionCard";
+import { FormSlider } from "./FormSlider";
 
 export function RouteSection({ formData, onChange }: RouteSectionProps) {
   // Handle date selection logic
@@ -19,6 +20,43 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
 
   return (
     <SectionCard icon="🗺️" title="Reiseroute">
+      {/* Routentyp und Reisestil - ganz oben */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="space-y-2">
+          <Label htmlFor="routeType">Routentyp</Label>
+          <Select value={formData.routeType} onValueChange={(value) => onChange({ routeType: value })}>
+            <SelectTrigger>
+              <SelectValue placeholder="-- Bitte wählen --" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="One-Way Route">One-Way Route</SelectItem>
+              <SelectItem value="Hin- und Rückfahrt">Hin- und Rückfahrt</SelectItem>
+              <SelectItem value="Rundreise">Rundreise</SelectItem>
+              <SelectItem value="Mehrere Ziele">Mehrere Ziele / Etappenreise</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="travelStyle">Reisestil</Label>
+          <Select value={formData.travelStyle} onValueChange={(value) => onChange({ travelStyle: value })}>
+            <SelectTrigger>
+              <SelectValue placeholder="-- Bitte wählen --" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Abenteuer">Abenteuer & Outdoor</SelectItem>
+              <SelectItem value="Entspannung">Entspannung & Wellness</SelectItem>
+              <SelectItem value="Kultur">Kultur & Geschichte</SelectItem>
+              <SelectItem value="Natur">Natur & Wandern</SelectItem>
+              <SelectItem value="Familie">Familie & Freizeit</SelectItem>
+              <SelectItem value="Gourmet">Gourmet & Kulinarik</SelectItem>
+              <SelectItem value="Slow Travel">Slow Travel & Nachhaltigkeit</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      {/* Hauptformular */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="startPoint">
@@ -45,6 +83,31 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
             required
           />
         </div>
+
+        {/* Etappenziel-Felder - nur bei "Mehrere Ziele / Etappenreise" */}
+        {formData.routeType === 'Mehrere Ziele' && (
+          <>
+            <div className="space-y-2">
+              <Label htmlFor="stageDestination1">Etappenziel 1</Label>
+              <Input
+                id="stageDestination1"
+                placeholder="z.B. Stuttgart, Deutschland"
+                value={formData.stageDestination1}
+                onChange={(e) => onChange({ stageDestination1: e.target.value })}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="stageDestination2">Etappenziel 2</Label>
+              <Input
+                id="stageDestination2"
+                placeholder="z.B. Karlsruhe, Deutschland"
+                value={formData.stageDestination2}
+                onChange={(e) => onChange({ stageDestination2: e.target.value })}
+              />
+            </div>
+          </>
+        )}
 
         <div className="space-y-2">
           <Label htmlFor="startDate">Abreise</Label>
@@ -75,29 +138,16 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="maxDailyDistance">Max. Fahrstrecke pro Tag (km)</Label>
-          <Input
+          <FormSlider
             id="maxDailyDistance"
-            type="number"
-            placeholder="z.B. 300"
-            value={formData.maxDailyDistance}
-            onChange={(e) => onChange({ maxDailyDistance: e.target.value })}
+            label="Max. Fahrstrecke pro Tag (km)"
+            value={parseInt(formData.maxDailyDistance) || 250}
+            min={100}
+            max={1000}
+            step={50}
+            unit="km"
+            onChange={(value) => onChange({ maxDailyDistance: value.toString() })}
           />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="routeType">Routentyp</Label>
-          <Select value={formData.routeType} onValueChange={(value) => onChange({ routeType: value })}>
-            <SelectTrigger>
-              <SelectValue placeholder="-- Bitte wählen --" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Rundreise">Rundreise</SelectItem>
-              <SelectItem value="Hin- und Rückfahrt">Hin- und Rückfahrt</SelectItem>
-              <SelectItem value="One-Way Route">One-Way Route</SelectItem>
-              <SelectItem value="Mehrere Ziele">Mehrere Ziele / Etappenreise</SelectItem>
-            </SelectContent>
-          </Select>
         </div>
 
         <div className="space-y-2 md:col-span-2">

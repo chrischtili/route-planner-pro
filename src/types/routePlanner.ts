@@ -6,6 +6,8 @@ export interface FormData {
   distance: string;
   maxDailyDistance: string;
   routeType: string;
+  stageDestination1: string;
+  stageDestination2: string;
   vehicleLength: string;
   vehicleHeight: string;
   vehicleWeight: string;
@@ -45,8 +47,10 @@ export const initialFormData: FormData = {
   startDate: new Date().toISOString().split('T')[0],
   endDate: new Date().toISOString().split('T')[0],
   distance: '',
-  maxDailyDistance: '',
+  maxDailyDistance: '250',
   routeType: '',
+  stageDestination1: '',
+  stageDestination2: '',
   vehicleLength: '7',
   vehicleHeight: '2.9',
   vehicleWeight: '3.5',

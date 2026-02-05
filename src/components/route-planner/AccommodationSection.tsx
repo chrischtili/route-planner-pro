@@ -70,23 +70,7 @@ export function AccommodationSection({ formData, onChange, onCheckboxChange }: A
             />
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="travelStyle">Reisestil</Label>
-            <Select value={formData.travelStyle} onValueChange={(value) => onChange({ travelStyle: value })}>
-              <SelectTrigger>
-                <SelectValue placeholder="-- Bitte wählen --" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="Abenteuer">Abenteuer & Outdoor</SelectItem>
-                <SelectItem value="Entspannung">Entspannung & Wellness</SelectItem>
-                <SelectItem value="Kultur">Kultur & Geschichte</SelectItem>
-                <SelectItem value="Natur">Natur & Wandern</SelectItem>
-                <SelectItem value="Familie">Familie & Freizeit</SelectItem>
-                <SelectItem value="Gourmet">Gourmet & Kulinarik</SelectItem>
-                <SelectItem value="Slow Travel">Slow Travel & Nachhaltigkeit</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+
         </div>
 
         <div className="space-y-2 md:col-span-2 lg:col-span-3">
