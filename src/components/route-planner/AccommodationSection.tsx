@@ -57,6 +57,20 @@ export function AccommodationSection({ formData, onChange, onCheckboxChange }: A
 
         <div className="space-y-6">
           <div className="space-y-3">
+            <Label className="font-medium">Anzahl Reisende</Label>
+            <FormSlider
+              id="numberOfTravelers"
+              label=""
+              value={formData.numberOfTravelers ? parseInt(formData.numberOfTravelers) : 1}
+              min={1}
+              max={8}
+              step={1}
+              unit="Personen"
+              onChange={(v) => onChange({ numberOfTravelers: v.toString() })}
+            />
+          </div>
+
+          <div className="space-y-3">
             <Label className="font-medium">Max. Budget pro Nacht</Label>
             <FormSlider
               id="avgCampsitePriceMax"

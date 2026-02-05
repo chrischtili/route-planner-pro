@@ -71,17 +71,6 @@ export function ActivitiesSection({ formData, onChange, onCheckboxChange }: Acti
         </div>
 
         <div className="space-y-6">
-          <FormSlider
-            id="numberOfTravelers"
-            label="Anzahl Reisende"
-            value={parseInt(formData.numberOfTravelers) || 2}
-            min={1}
-            max={6}
-            step={1}
-            unit="Personen"
-            onChange={(v) => onChange({ numberOfTravelers: v.toString() })}
-          />
-
           <div className="space-y-3">
             <Label className="font-medium">Reisebegleitung</Label>
             <CheckboxGroup
