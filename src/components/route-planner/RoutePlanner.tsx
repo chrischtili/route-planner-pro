@@ -320,7 +320,7 @@ export function RoutePlanner() {
           <p>Camping Route – Erstellt mit ❤️ für Wohnmobil-Enthusiasten</p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <a href="https://github.com/chrischtili/route-planner-pro" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-              📱 GitHub
+              <img src="/GitHub_Lockup_Black_Clearspace.svg" alt="GitHub" className="h-5" />
             </a>
             <a href="/impressum" className="text-muted-foreground hover:text-primary">
               📄 Impressum
