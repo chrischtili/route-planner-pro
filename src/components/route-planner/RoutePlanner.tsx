@@ -214,6 +214,9 @@ export function RoutePlanner() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-2 relative">
             {/* Schritt 1 */}
             <div className="flex flex-col items-center text-center p-4 bg-blue-50 rounded-xl shadow-sm w-48 relative z-10">
+              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-blue-500 text-white rounded-full font-bold">
+                1
+              </div>
               <div className="flex items-center justify-center w-12 h-12 mb-3 bg-blue-100 rounded-full">
                 <span className="text-2xl">🗺️</span>
               </div>
@@ -226,6 +229,9 @@ export function RoutePlanner() {
             
             {/* Schritt 2 */}
             <div className="flex flex-col items-center text-center p-4 bg-green-50 rounded-xl shadow-sm w-48 relative z-10">
+              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-green-500 text-white rounded-full font-bold">
+                2
+              </div>
               <div className="flex items-center justify-center w-12 h-12 mb-3 bg-green-100 rounded-full">
                 <span className="text-2xl">⚙️</span>
               </div>
@@ -238,6 +244,9 @@ export function RoutePlanner() {
             
             {/* Schritt 3 */}
             <div className="flex flex-col items-center text-center p-4 bg-purple-50 rounded-xl shadow-sm w-48 relative z-10">
+              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-purple-500 text-white rounded-full font-bold">
+                3
+              </div>
               <div className="flex items-center justify-center w-12 h-12 mb-3 bg-purple-100 rounded-full">
                 <span className="text-2xl">✨</span>
               </div>
@@ -250,6 +259,9 @@ export function RoutePlanner() {
             
             {/* Schritt 4 */}
             <div className="flex flex-col items-center text-center p-4 bg-orange-50 rounded-xl shadow-sm w-48 relative z-10">
+              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-orange-500 text-white rounded-full font-bold">
+                4
+              </div>
               <div className="flex items-center justify-center w-12 h-12 mb-3 bg-orange-100 rounded-full">
                 <span className="text-2xl">📋</span>
               </div>
@@ -262,6 +274,9 @@ export function RoutePlanner() {
             
             {/* Schritt 5 */}
             <div className="flex flex-col items-center text-center p-4 bg-red-50 rounded-xl shadow-sm w-48 relative z-10">
+              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-red-500 text-white rounded-full font-bold">
+                5
+              </div>
               <div className="flex items-center justify-center w-12 h-12 mb-3 bg-red-100 rounded-full">
                 <span className="text-2xl">💾</span>
               </div>
