@@ -31,6 +31,18 @@ const facilitiesOptions = [
   { value: 'Schwimmbad', label: 'Schwimmbad' },
 ];
 
+const companionOptions = [
+  { value: 'Solo', label: 'Allein (Solo)' },
+  { value: 'Partner', label: 'Partner / Ehepartner' },
+  { value: 'Freunde', label: 'Freunde' },
+  { value: 'Familie', label: 'Familie' },
+  { value: 'Kinder', label: 'Kinder' },
+  { value: 'Babys', label: 'Babys / Kleinkinder' },
+  { value: 'Haustiere', label: 'Haustiere / Hunde' },
+  { value: 'Mehrgenerationenreise', label: 'Mehrgenerationenreise' },
+  { value: 'Seniorengruppe', label: 'Seniorengruppe' },
+];
+
 export function AccommodationSection({ formData, onChange, onCheckboxChange }: AccommodationSectionProps) {
   return (
     <SectionCard icon="🏕️" title="Übernachtungsoptionen" subtitle="(Mehrfachauswahl möglich)">
@@ -56,6 +68,16 @@ export function AccommodationSection({ formData, onChange, onCheckboxChange }: A
         </div>
 
         <div className="space-y-6">
+          <div className="space-y-3">
+            <Label className="font-medium">Reisebegleitung</Label>
+            <CheckboxGroup
+              name="travelCompanions"
+              options={companionOptions}
+              selectedValues={formData.travelCompanions}
+              onChange={onCheckboxChange}
+            />
+          </div>
+
           <div className="space-y-3">
             <Label className="font-medium">Anzahl Reisende</Label>
             <FormSlider

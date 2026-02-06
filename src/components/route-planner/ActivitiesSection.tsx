@@ -45,8 +45,8 @@ const companionOptions = [
 export function ActivitiesSection({ formData, onChange, onCheckboxChange }: ActivitiesSectionProps) {
   return (
     <SectionCard icon="✨" title="Besondere Interessen & Aktivitäten" subtitle="(Mehrfachauswahl möglich)">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="space-y-3 md:col-span-2">
+      <div className="space-y-6">
+        <div className="space-y-3">
           <Label className="font-medium">Aktivitäten & Interessen</Label>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4">
             <CheckboxGroup
@@ -70,19 +70,7 @@ export function ActivitiesSection({ formData, onChange, onCheckboxChange }: Acti
           </div>
         </div>
 
-        <div className="space-y-6">
-          <div className="space-y-3">
-            <Label className="font-medium">Reisebegleitung</Label>
-            <CheckboxGroup
-              name="travelCompanions"
-              options={companionOptions}
-              selectedValues={formData.travelCompanions}
-              onChange={onCheckboxChange}
-            />
-          </div>
-        </div>
-
-        <div className="space-y-2 md:col-span-2 lg:col-span-3">
+        <div className="space-y-2">
           <Label htmlFor="additionalInfo">Weitere Informationen & Wünsche</Label>
           <Textarea
             id="additionalInfo"

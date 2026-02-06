@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Route, RotateCcw, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FormData, AISettings, initialFormData, initialAISettings } from "@/types/routePlanner";
@@ -20,6 +20,8 @@ export function RoutePlanner() {
   const [loadingMessage, setLoadingMessage] = useState<string>('');
   const [aiError, setAIError] = useState<string>('');
   const [aiModel, setAiModel] = useState<string>('');
+  const outputSectionRef = useRef<HTMLDivElement>(null);
+  const aiSettingsSectionRef = useRef<HTMLDivElement>(null);
 
   const handleFormChange = (data: Partial<FormData>) => {
     setFormData(prev => ({ ...prev, ...data }));
@@ -53,22 +55,43 @@ export function RoutePlanner() {
         if (!aiSettings.apiKey?.trim()) {
           setAIError('Bitte gib deinen API-Schlüssel ein, um die KI direkt zu nutzen.');
           setIsLoading(false);
+          // Scroll to AI settings section
+          setTimeout(() => {
+            aiSettingsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+          }, 300);
           return;
         }
 
         const aiResponse = await callAIAPI(formData, aiSettings);
         setOutput(aiResponse);
         setAiModel(aiSettings.aiProvider.toUpperCase());
+        // Scroll to output after state update
+        setTimeout(() => {
+          outputSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        }, 300);
       } else {
         setLoadingMessage('📝 Dein Prompt wird generiert...');
         await new Promise(resolve => setTimeout(resolve, 1000));
         const generatedOutput = generatePrompt(formData);
         setOutput(generatedOutput);
         setAiModel('');
+        // Scroll to output after state update
+        setTimeout(() => {
+          outputSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        }, 300);
       }
     } catch (error) {
       console.error('Error:', error);
-      setAIError('Fehler beim Aufruf der KI. Bitte überprüfe deinen API-Schlüssel und deine Internetverbindung.');
+      if (error instanceof Error) {
+        // Use the user-friendly error message directly
+        setAIError(error.message);
+      } else {
+        setAIError('Fehler beim Aufruf der KI. Bitte überprüfe deinen API-Schlüssel und deine Internetverbindung.');
+      }
+      // Scroll to AI settings section when there's an error
+      setTimeout(() => {
+        aiSettingsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      }, 300);
     } finally {
       setIsLoading(false);
     }
@@ -217,11 +240,13 @@ export function RoutePlanner() {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          <AISettingsSection 
-            aiSettings={aiSettings}
-            onAISettingsChange={handleAISettingsChange}
-            aiError={aiError}
-          />
+          <div ref={aiSettingsSectionRef}>
+            <AISettingsSection 
+              aiSettings={aiSettings}
+              onAISettingsChange={handleAISettingsChange}
+              aiError={aiError}
+            />
+          </div>
           
           <RouteSection 
             formData={formData}
@@ -275,14 +300,16 @@ export function RoutePlanner() {
         </form>
 
         {/* Output */}
-        <OutputSection
-          output={output}
-          isLoading={isLoading}
-          loadingMessage={loadingMessage}
-          aiModel={aiModel}
-          aiError={aiError}
-          useDirectAI={aiSettings.useDirectAI}
-        />
+        <div ref={outputSectionRef}>
+          <OutputSection
+            output={output}
+            isLoading={isLoading}
+            loadingMessage={loadingMessage}
+            aiModel={aiModel}
+            aiError={aiError}
+            useDirectAI={aiSettings.useDirectAI}
+          />
+        </div>
       </div>
 
       {/* FAQ Section */}
