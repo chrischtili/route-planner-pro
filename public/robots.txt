@@ -12,3 +12,16 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://campingroute.app/sitemap.xml
+
+# Crawl-delay (optional, falls Serverlast ein Problem ist)
+# Crawl-delay: 5
+
+# Disallow bestimmte Verzeichnisse (falls benötigt)
+# Disallow: /private/
+# Disallow: /admin/
+
+# Host (für Suchmaschinen, die dies unterstützen)
+Host: https://campingroute.app
