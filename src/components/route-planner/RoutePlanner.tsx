@@ -112,12 +112,13 @@ export function RoutePlanner() {
           src={heroCamper} 
           alt="Wohnmobil auf Reisen" 
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-foreground/40 to-background" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <div className="flex flex-col items-center mb-4">
             <div className="flex items-center">
-              <img src="/favicon-original-final.svg" alt="Camping Route Logo" className="h-20 w-20 md:h-24 md:w-24 -mr-2" />
+              <img src="/favicon-original-final.svg" alt="Camping Route Logo" className="h-20 w-20 md:h-24 md:w-24 -mr-2" loading="lazy" />
               <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground">
                 Camping Route
               </h1>
@@ -393,7 +394,7 @@ export function RoutePlanner() {
           <p>Camping Route – Erstellt mit ❤️ für Wohnmobil-Enthusiasten</p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <a href="https://github.com/chrischtili/route-planner-pro" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-              <img src="/GitHub_Lockup_Black_Clearspace.svg" alt="GitHub" className="h-5" />
+              <img src="/GitHub_Lockup_Black_Clearspace.svg" alt="GitHub" className="h-5" loading="lazy" />
             </a>
             <a href="/impressum" className="text-muted-foreground hover:text-primary">
               📄 Impressum
