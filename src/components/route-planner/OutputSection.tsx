@@ -42,7 +42,10 @@ export function OutputSection({ output, isLoading, loadingMessage, aiModel, aiEr
         </head>
         <body>
           <div class="header">
-            <h1>🚐 Wohnmobil-Route</h1>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
+              <img src="/favicon-final.svg" alt="Camping Route Logo" style="height: 60px; width: 60px;" />
+              <h1 style="margin: 0;">Wohnmobil-Route</h1>
+            </div>
             <p>Generiert am: ${new Date().toLocaleDateString('de-DE')} ${new Date().toLocaleTimeString('de-DE')}</p>
             ${aiModel ? `<p class="model-info">KI-Modell: ${aiModel}</p>` : ''}
           </div>
