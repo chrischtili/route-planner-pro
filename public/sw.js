@@ -1,5 +1,5 @@
 // Service Worker für campingroute.app
-const CACHE_NAME = 'campingroute-app-v2';
+const CACHE_NAME = 'campingroute-app-v3';
 const urlsToCache = [
   '/',
   '/index.html',
