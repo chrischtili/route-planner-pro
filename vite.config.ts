@@ -26,5 +26,7 @@ export default defineConfig(({ mode }) => ({
         assetFileNames: `assets/[name].[hash].[ext]`,
       },
     },
+    // Stelle sicher, dass die Basis-URL korrekt ist
+    base: './',
   },
 }));
