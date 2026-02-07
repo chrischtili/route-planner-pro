@@ -156,20 +156,20 @@ export function RoutePlanner() {
       <div className="container py-8 -mt-20 relative z-10">
         {/* Social Proof Section */}
         <div className="bg-card rounded-xl shadow-lg p-6 mb-8">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                 ⭐
               </div>
               <h2 className="text-xl font-semibold text-yellow-700">Von Wohnmobil-Enthusiasten geliebt</h2>
             </div>
-            <div className="flex items-center gap-2 text-yellow-500">
+            <div className="flex items-center gap-2 text-yellow-500 justify-center md:justify-start">
               <span>★★★★☆</span>
               <span className="text-muted-foreground text-sm">4.7/5</span>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-muted/50 p-4 rounded-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 px-4">
+            <div className="bg-muted/50 p-4 rounded-lg break-words">
               <p className="text-sm italic">"Endlich ein Routenplaner, der wirklich auf meine Bedürfnisse eingeht! Die KI hat mir eine perfekte Route mit tollen Stellplätzen vorgeschlagen."</p>
               <p className="text-xs text-muted-foreground mt-2">– Markus, Wohnmobil-Reisender</p>
             </div>
@@ -228,89 +228,92 @@ export function RoutePlanner() {
             </div>
           </div>
         </div>
+{/* Info Box */}
+<div className="bg-card rounded-xl shadow-lg p-6 mb-8">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+      📖
+    </div>
+    <h2 className="text-2xl font-bold text-blue-800">So geht's</h2>
+  </div>
+  <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-2 relative overflow-x-auto min-h-[300px]">
+    {/* Schritt 1 */}
+    <div className="flex flex-col items-center text-center p-4 bg-blue-50 rounded-xl shadow-sm w-full max-w-[180px] relative z-10">
+      <div className="flex items-center justify-center w-8 h-8 mb-2 bg-blue-500 text-white rounded-full font-bold">
+        1
+      </div>
+      <div className="flex items-center justify-center w-12 h-12 mb-3 bg-blue-100 rounded-full">
+        <span className="text-2xl">🗺️</span>
+      </div>
+      <strong className="text-lg mb-1">Route planen</strong>
+      <span className="text-sm text-blue-600">Gib Start, Ziel und Reisedaten ein</span>
+    </div>
 
-        {/* Info Box */}
-        <div className="bg-card rounded-xl shadow-lg p-6 mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
-              📖
-            </div>
-            <h2 className="text-2xl font-bold text-blue-800">So funktioniert's</h2>
-          </div>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-2 relative">
-            {/* Schritt 1 */}
-            <div className="flex flex-col items-center text-center p-4 bg-blue-50 rounded-xl shadow-sm w-48 relative z-10">
-              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-blue-500 text-white rounded-full font-bold">
-                1
-              </div>
-              <div className="flex items-center justify-center w-12 h-12 mb-3 bg-blue-100 rounded-full">
-                <span className="text-2xl">🗺️</span>
-              </div>
-              <strong className="text-lg mb-1">Route planen</strong>
-              <span className="text-sm text-blue-600">Gib Start, Ziel und Reisedaten ein</span>
-            </div>
-            
-            {/* Pfeil 1 */}
-            <div className="hidden md:block text-2xl text-blue-300">→</div>
-            
-            {/* Schritt 2 */}
-            <div className="flex flex-col items-center text-center p-4 bg-green-50 rounded-xl shadow-sm w-48 relative z-10">
-              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-green-500 text-white rounded-full font-bold">
-                2
-              </div>
-              <div className="flex items-center justify-center w-12 h-12 mb-3 bg-green-100 rounded-full">
-                <span className="text-2xl">⚙️</span>
-              </div>
-              <strong className="text-lg mb-1">Optionen wählen</strong>
-              <span className="text-sm text-green-600">Fahrzeug, Interessen, Budget</span>
-            </div>
-            
-            {/* Pfeil 2 */}
-            <div className="hidden md:block text-2xl text-green-300">→</div>
-            
-            {/* Schritt 3 */}
-            <div className="flex flex-col items-center text-center p-4 bg-purple-50 rounded-xl shadow-sm w-48 relative z-10">
-              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-purple-500 text-white rounded-full font-bold">
-                3
-              </div>
-              <div className="flex items-center justify-center w-12 h-12 mb-3 bg-purple-100 rounded-full">
-                <span className="text-2xl">✨</span>
-              </div>
-              <strong className="text-lg mb-1">Generieren</strong>
-              <span className="text-sm text-purple-600">Route mit einem Klick erstellen</span>
-            </div>
-            
-            {/* Pfeil 3 */}
-            <div className="hidden md:block text-2xl text-purple-300">→</div>
-            
-            {/* Schritt 4 */}
-            <div className="flex flex-col items-center text-center p-4 bg-orange-50 rounded-xl shadow-sm w-48 relative z-10">
-              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-orange-500 text-white rounded-full font-bold">
-                4
-              </div>
-              <div className="flex items-center justify-center w-12 h-12 mb-3 bg-orange-100 rounded-full">
-                <span className="text-2xl">📋</span>
-              </div>
-              <strong className="text-lg mb-1">Ergebnis</strong>
-              <span className="text-sm text-orange-600">Detaillierte Routenplanung</span>
-            </div>
-            
-            {/* Pfeil 4 */}
-            <div className="hidden md:block text-2xl text-orange-300">→</div>
-            
-            {/* Schritt 5 */}
-            <div className="flex flex-col items-center text-center p-4 bg-red-50 rounded-xl shadow-sm w-48 relative z-10">
-              <div className="flex items-center justify-center w-8 h-8 mb-2 bg-red-500 text-white rounded-full font-bold">
-                5
-              </div>
-              <div className="flex items-center justify-center w-12 h-12 mb-3 bg-red-100 rounded-full">
-                <span className="text-2xl">💾</span>
-              </div>
-              <strong className="text-lg mb-1">Exportieren</strong>
-              <span className="text-sm text-red-600">Drucken oder speichern</span>
-            </div>
-          </div>
-        </div>
+    {/* Pfeil 1 */}
+    <div className="hidden md:block text-2xl text-blue-300">→</div>
+
+    {/* Schritt 2 */}
+    <div className="flex flex-col items-center text-center p-4 bg-green-50 rounded-xl shadow-sm w-full max-w-[180px] relative z-10">
+      <div className="flex items-center justify-center w-8 h-8 mb-2 bg-green-500 text-white rounded-full font-bold">
+        2
+      </div>
+      <div className="flex items-center justify-center w-12 h-12 mb-3 bg-green-100 rounded-full">
+        <span className="text-2xl">⚙️</span>
+      </div>
+      <strong className="text-lg mb-1">Optionen wählen</strong>
+      <span className="text-sm text-green-600">Fahrzeug, Interessen, Budget</span>
+    </div>
+
+    {/* Pfeil 2 */}
+    <div className="hidden md:block text-2xl text-green-300">→</div>
+
+    {/* Schritt 3 */}
+    <div className="flex flex-col items-center text-center p-4 bg-purple-50 rounded-xl shadow-sm w-full max-w-[180px] relative z-10">
+      <div className="flex items-center justify-center w-8 h-8 mb-2 bg-purple-500 text-white rounded-full font-bold">
+        3
+      </div>
+      <div className="flex items-center justify-center w-12 h-12 mb-3 bg-purple-100 rounded-full">
+        <span className="text-2xl">✨</span>
+      </div>
+      <strong className="text-lg mb-1">Generieren</strong>
+      <span className="text-sm text-purple-600">Route mit einem Klick erstellen</span>
+    </div>
+
+    {/* Pfeil 3 */}
+    <div className="hidden md:block text-2xl text-purple-300">→</div>
+
+    {/* Schritt 4 */}
+    <div className="flex flex-col items-center text-center p-4 bg-orange-50 rounded-xl shadow-sm w-full max-w-[180px] relative z-10">
+      <div className="flex items-center justify-center w-8 h-8 mb-2 bg-orange-500 text-white rounded-full font-bold">
+        4
+      </div>
+      <div className="flex items-center justify-center w-12 h-12 mb-3 bg-orange-100 rounded-full">
+        <span className="text-2xl">📋</span>
+      </div>
+      <strong className="text-lg mb-1">Ergebnis</strong>
+      <span className="text-sm text-orange-600">Detaillierte Routenplanung</span>
+    </div>
+
+    {/* Pfeil 4 */}
+    <div className="hidden md:block text-2xl text-orange-300">→</div>
+
+    {/* Schritt 5 */}
+    <div className="flex flex-col items-center text-center p-4 bg-red-50 rounded-xl shadow-sm w-full max-w-[180px] relative z-10">
+      <div className="flex items-center justify-center w-8 h-8 mb-2 bg-red-500 text-white rounded-full font-bold">
+        5
+      </div>
+      <div className="flex items-center justify-center w-12 h-12 mb-3 bg-red-100 rounded-full">
+        <span className="text-2xl">💾</span>
+      </div>
+      <strong className="text-lg mb-1">Exportieren</strong>
+      <span className="text-sm text-red-600">Drucken oder speichern</span>
+    </div>
+  </div>
+</div>
+
+
+
+
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -546,15 +549,18 @@ export function RoutePlanner() {
       <footer className="border-t border-border mt-12 py-8 text-center text-sm text-muted-foreground">
         <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto px-4">
           <p>Camping Route – Erstellt mit ❤️ für Wohnmobil-Enthusiasten</p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="https://github.com/chrischtili/route-planner-pro" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-              <img src="/GitHub_Lockup_Black_Clearspace.svg" alt="GitHub" className="h-5" loading="lazy" />
+          <div className="grid grid-cols-3 gap-4 mt-4 md:mt-0">
+            <a href="https://github.com/chrischtili/route-planner-pro" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary">
+              <img src="/GitHub_Invertocat_Black_Clearspace.png" alt="GitHub" className="h-6" loading="lazy" />
+              <span>GitHub</span>
             </a>
-            <a href="/impressum" className="text-muted-foreground hover:text-primary">
-              📄 Impressum
+            <a href="/impressum" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary">
+              📄
+              <span>Impressum</span>
             </a>
-            <a href="/datenschutz" className="text-muted-foreground hover:text-primary">
-              🔒 Datenschutz
+            <a href="/datenschutz" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary">
+              🔒
+              <span>Datenschutz</span>
             </a>
           </div>
         </div>
