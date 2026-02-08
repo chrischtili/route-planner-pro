@@ -254,7 +254,7 @@ export function RoutePlanner() {
       {/* Main Content */}
       <div className="container py-8 -mt-20 relative z-10">
         {/* Simple Social Proof Section */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <div className="bg-white rounded-xl shadow-lg p-6 mb-8 mt-8 sm:mt-0">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
