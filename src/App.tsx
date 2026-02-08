@@ -11,6 +11,20 @@ import Datenschutz from "./pages/Datenschutz";
 
 const queryClient = new QueryClient();
 
+// Polyfill for requestIdleCallback in Safari
+if (typeof window !== 'undefined' && !('requestIdleCallback' in window)) {
+  window.requestIdleCallback = function(callback, options) {
+    const timeout = options?.timeout ?? 1000;
+    const start = Date.now();
+    return setTimeout(() => {
+      callback({ didTimeout: false, timeRemaining: () => Math.max(0, 50 - (Date.now() - start)) });
+    }, timeout);
+  };
+  window.cancelIdleCallback = function(id) {
+    clearTimeout(id);
+  };
+}
+
 const App = () => {
   // Use requestIdleCallback for non-critical initialization
   React.useEffect(() => {
