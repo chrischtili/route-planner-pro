@@ -38,7 +38,7 @@ export function RoutePlanner() {
     'KI-Einstellungen',
     'Reiseroute',
     'Routenoptimierung',
-    'Fahrzeugspezifische Filter',
+    'Fahrzeug Filter',
     'Übernachtung',
     'Besondere Interessen',
     'Zusammenfassung'
@@ -475,10 +475,6 @@ export function RoutePlanner() {
                     <div className="flex justify-between">
                       <span className="text-gray-600">Ziel:</span>
                       <span className="font-medium">{formData.destination || 'Nicht angegeben'}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Fahrzeugtyp:</span>
-                      <span className="font-medium">{formData.vehicleType || 'Nicht angegeben'}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">KI-Methode:</span>
