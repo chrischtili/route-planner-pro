@@ -123,7 +123,7 @@ export function RoutePlanner() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background" id="main-content">
       {/* Hero Section */}
       <div className="relative h-[40vh] md:h-[50vh] min-h-[300px] md:min-h-[400px] overflow-hidden">
         <img 
@@ -222,7 +222,7 @@ export function RoutePlanner() {
               </div>
             </div>
             <div className="mt-3 md:mt-4 p-2 md:p-3 bg-primary/10 rounded-md text-center">
-              <p className="text-xs md:text-sm text-primary font-medium">📊 Gesamt: 420 km • 3 Übernachtungen • 90€</p>
+              <p className="text-xs md:text-sm text-foreground font-medium">📊 Gesamt: 420 km • 3 Übernachtungen • 90€</p>
             </div>
             <div className="mt-2 md:mt-3 text-xs text-muted-foreground text-center">
               <p>💡 Dies ist ein Beispiel für die KI-generierte Route. Ohne API erhältst du einen Prompt zum manuellen Verwenden.</p>
@@ -262,7 +262,7 @@ export function RoutePlanner() {
         <span className="text-xl md:text-2xl">⚙️</span>
       </div>
       <strong className="text-base md:text-lg mb-1">Optionen wählen</strong>
-      <span className="text-xs md:text-sm text-green-600">Fahrzeug, Interessen, Budget</span>
+      <span className="text-xs md:text-sm text-green-800">Fahrzeug, Interessen, Budget</span>
     </div>
 
     {/* Pfeil 2 */}
@@ -277,7 +277,7 @@ export function RoutePlanner() {
         <span className="text-xl md:text-2xl">✨</span>
       </div>
       <strong className="text-base md:text-lg mb-1">Generieren</strong>
-      <span className="text-xs md:text-sm text-purple-600">Route mit einem Klick erstellen</span>
+      <span className="text-xs md:text-sm text-purple-800">Route mit einem Klick erstellen</span>
     </div>
 
     {/* Pfeil 3 */}
@@ -292,7 +292,7 @@ export function RoutePlanner() {
         <span className="text-xl md:text-2xl">📋</span>
       </div>
       <strong className="text-base md:text-lg mb-1">Ergebnis</strong>
-      <span className="text-xs md:text-sm text-orange-600">Detaillierte Routenplanung</span>
+      <span className="text-xs md:text-sm text-orange-800">Detaillierte Routenplanung</span>
     </div>
 
     {/* Pfeil 4 */}
@@ -307,7 +307,7 @@ export function RoutePlanner() {
         <span className="text-xl md:text-2xl">💾</span>
       </div>
       <strong className="text-base md:text-lg mb-1">Exportieren</strong>
-      <span className="text-xs md:text-sm text-red-600">Drucken oder speichern</span>
+      <span className="text-xs md:text-sm text-red-800">Drucken oder speichern</span>
     </div>
   </div>
 </div>
@@ -579,7 +579,7 @@ export function RoutePlanner() {
           <p className="text-xs md:text-sm">Camping Route – Erstellt mit ❤️ für Wohnmobil-Enthusiasten</p>
           <div className="grid grid-cols-3 gap-3 md:gap-4 mt-4 md:mt-0">
             <a href="https://github.com/chrischtili/route-planner-pro" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 md:gap-2 text-muted-foreground hover:text-primary">
-              <img src="/GitHub_Invertocat_Black_Clearspace.png" alt="GitHub" className="h-5 md:h-6" loading="lazy" />
+              <img src="/GitHub_Invertocat_Black_Clearspace.png" alt="GitHub Logo" className="h-5 md:h-6" loading="lazy" />
               <span className="text-xs md:text-sm">GitHub</span>
             </a>
             <a href="/impressum" className="flex flex-col items-center gap-1 md:gap-2 text-muted-foreground hover:text-primary">
@@ -599,6 +599,6 @@ export function RoutePlanner() {
         </div>
       </footer>
       </div>
-    </div>
+    </main>
   );
 }

@@ -115,7 +115,7 @@ export function AISettingsSection({ aiSettings, onAISettingsChange, aiError }: A
                     });
                   }}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger aria-label="KI-Anbieter und Modell auswählen">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -148,7 +148,7 @@ export function AISettingsSection({ aiSettings, onAISettingsChange, aiError }: A
                   href={providerHelp[currentProvider]?.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline font-medium"
+                  className="text-foreground hover:underline font-medium"
                 >
                   API-Schlüssel bei {providerHelp[currentProvider]?.name} erstellen →
                 </a>

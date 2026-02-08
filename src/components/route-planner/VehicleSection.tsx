@@ -74,7 +74,7 @@ export function VehicleSection({ formData, onChange }: VehicleSectionProps) {
         <div className="space-y-2">
           <Label htmlFor="fuelType">Kraftstoffart</Label>
           <Select value={formData.fuelType} onValueChange={(value) => onChange({ fuelType: value })}>
-            <SelectTrigger>
+            <SelectTrigger aria-label="Kraftstoffart auswählen">
               <SelectValue placeholder="-- Bitte wählen --" />
             </SelectTrigger>
             <SelectContent>
@@ -112,7 +112,7 @@ export function VehicleSection({ formData, onChange }: VehicleSectionProps) {
         <div className="space-y-2">
           <Label htmlFor="toiletteSystem">Toilettensystem</Label>
           <Select value={formData.toiletteSystem} onValueChange={(value) => onChange({ toiletteSystem: value })}>
-            <SelectTrigger>
+            <SelectTrigger aria-label="Toilettensystem auswählen">
               <SelectValue placeholder="-- Bitte wählen --" />
             </SelectTrigger>
             <SelectContent>

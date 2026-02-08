@@ -15,6 +15,10 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      {/* Skip link for accessibility */}
+      <a href="#main-content" className="sr-only focus:not-sr-only">
+        Zum Hauptinhalt springen
+      </a>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

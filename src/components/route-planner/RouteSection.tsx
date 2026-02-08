@@ -28,7 +28,7 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
         <div className="space-y-2">
           <Label htmlFor="routeType">Routentyp</Label>
           <Select value={formData.routeType} onValueChange={(value) => onChange({ routeType: value })}>
-            <SelectTrigger>
+            <SelectTrigger aria-label="Routentyp auswählen">
               <SelectValue placeholder="-- Bitte wählen --" />
             </SelectTrigger>
             <SelectContent>
@@ -43,7 +43,7 @@ export function RouteSection({ formData, onChange }: RouteSectionProps) {
         <div className="space-y-2">
           <Label htmlFor="travelStyle">Reisestil</Label>
           <Select value={formData.travelStyle} onValueChange={(value) => onChange({ travelStyle: value })}>
-            <SelectTrigger>
+            <SelectTrigger aria-label="Reisestil auswählen">
               <SelectValue placeholder="-- Bitte wählen --" />
             </SelectTrigger>
             <SelectContent>

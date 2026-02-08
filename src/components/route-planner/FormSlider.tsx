@@ -19,13 +19,15 @@ export function FormSlider({ id, label, value, min, max, step, unit, onChange }:
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <Label htmlFor={id} className={isMobile ? "text-sm" : ""}>{label}</Label>
-        <span className={`text-sm font-medium text-primary ${isMobile ? "text-base" : ""}`}>
+        <Label id={`${id}-label`} htmlFor={id} className={isMobile ? "text-sm" : ""}>{label}</Label>
+        <span className={`text-sm font-medium text-foreground ${isMobile ? "text-base" : ""}`}>
           {value} {unit}
         </span>
       </div>
       <Slider
         id={id}
+        aria-labelledby={`${id}-label`}
+        aria-label={`${label} Slider`}
         value={[value]}
         min={min}
         max={max}
