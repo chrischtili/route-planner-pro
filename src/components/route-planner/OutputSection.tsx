@@ -31,14 +31,22 @@ export function OutputSection({ output, isLoading, loadingMessage, aiModel, aiPr
         }
       }
       
+      // Batch DOM operations to prevent layout thrashing
       const textarea = document.createElement('textarea');
       textarea.value = output;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      textarea.style.top = '0';
-      textarea.style.left = '0';
-      textarea.style.width = '1px';
-      textarea.style.height = '1px';
+      
+      // Set all styles before appending to DOM
+      Object.assign(textarea.style, {
+        position: 'fixed',
+        opacity: '0',
+        top: '0',
+        left: '0',
+        width: '1px',
+        height: '1px',
+        pointerEvents: 'none',
+        zIndex: '-1'
+      });
+      
       document.body.appendChild(textarea);
       textarea.focus();
       textarea.select();

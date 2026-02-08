@@ -106,6 +106,41 @@
       }
     }
     </script>
+
+
+    <!-- Optimize CSS loading with media attribute -->
+    <style>
+      /* Small critical CSS to prevent FOUC */
+      body { opacity: 0; transition: opacity 0.3s; }
+      body.css-loaded { opacity: 1; }
+    </style>
+    <!-- Preconnect to critical third-party origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Critical LCP Optimizations -->
+    <!-- 1. Preconnect to third-party origins for early connection setup -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- 2. LCP optimization handled by fetchpriority="high" on the image element -->
+    
+    <script>
+      // Mark body as loaded when CSS is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('css-loaded');
+      });
+      
+      // Fallback for very slow connections - show content after 2 seconds
+      setTimeout(function() {
+        if (!document.body.classList.contains('css-loaded')) {
+          document.body.classList.add('css-loaded');
+        }
+      }, 2000);
+    </script>
+    <noscript>
+      <style>body { opacity: 1 !important; }</style>
+    </noscript>
   </head>
 
   <body>

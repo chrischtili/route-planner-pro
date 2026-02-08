@@ -130,13 +130,15 @@ export function RoutePlanner() {
           src={heroCamper} 
           alt="Wohnmobil auf Reisen" 
           className="w-full h-full object-cover"
+          width="1920"
+          height="1080"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-foreground/40 to-background" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <div className="flex flex-col items-center mb-3 md:mb-4">
             <div className="flex items-center">
-              <img src="/favicon-original-final.svg" alt="Camping Route Logo" className="h-16 w-16 md:h-20 md:w-20 -mr-2" loading="lazy" />
+              <img src="/favicon-original-final.svg" alt="Camping Route Logo" className="h-16 w-16 md:h-20 md:w-20 -mr-2" width="64" height="64" loading="lazy" />
               <h1 className="text-2xl md:text-5xl font-bold text-primary-foreground">
                 Camping Route
               </h1>
@@ -579,7 +581,7 @@ export function RoutePlanner() {
           <p className="text-xs md:text-sm">Camping Route – Erstellt mit ❤️ für Wohnmobil-Enthusiasten</p>
           <div className="grid grid-cols-3 gap-3 md:gap-4 mt-4 md:mt-0">
             <a href="https://github.com/chrischtili/route-planner-pro" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 md:gap-2 text-muted-foreground hover:text-primary">
-              <img src="/GitHub_Invertocat_Black_Clearspace.png" alt="GitHub Logo" className="h-5 md:h-6" loading="lazy" />
+              <img src="/GitHub_Invertocat_Black_Clearspace.png" alt="GitHub Logo" className="h-5 md:h-6" width="20" height="20" loading="lazy" />
               <span className="text-xs md:text-sm">GitHub</span>
             </a>
             <a href="/impressum" className="flex flex-col items-center gap-1 md:gap-2 text-muted-foreground hover:text-primary">
