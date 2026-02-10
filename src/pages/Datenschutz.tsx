@@ -33,9 +33,10 @@ export default function Datenschutz() {
                 Die Daten bleiben auf Ihrem Gerät und werden gelöscht, wenn Sie den Browser-Cache leeren.
               </p>
               <p className="text-sm mt-2">
-                <strong>Lokale Fonts:</strong> Diese Website verwendet ausschließlich lokal gehostete Fonts (Inter, Source Sans Pro, 
-                Source Serif Pro, Source Code Pro), um DSGVO-Konformität zu gewährleisten. Es werden keine externen 
-                Fonts von Drittanbietern geladen.
+                <strong>Lokale Fonts:</strong> Diese Website verwendet ausschließlich Systemschriftarten (Arial, Helvetica, Georgia, 
+                Times New Roman, Menlo, etc.) und greift auf lokale Font-Familien zurück, die bereits auf Ihrem Gerät 
+                installiert sind. Es werden keine externen Fonts von Drittanbietern geladen und keine Font-Dateien von 
+                unseren Servern bereitgestellt, um maximale DSGVO-Konformität zu gewährleisten.
               </p>
               <p className="text-sm mt-2">
                 <strong>KI-Integration:</strong> Wenn Sie die direkte KI-Funktion nutzen, werden Ihre Daten an den von 
