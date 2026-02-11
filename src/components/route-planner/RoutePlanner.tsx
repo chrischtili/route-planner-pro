@@ -27,7 +27,7 @@ import { Navbar } from "./Navbar";
 
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Footer } from "@/components/ui/footer";
+import { Footer } from "./Footer";
 import { motion } from "framer-motion";
 
 // Schritt-Definitionen mit Icons für das neue Design
@@ -160,17 +160,28 @@ export function RoutePlanner() {
         });
         
         setCompletedSteps(newCompletedSteps);
-        setCurrentStep(steps.length);
         
         const aiResponse = await callAIAPI(formData, aiSettings);
         setOutput(aiResponse);
         setAiModel(aiSettings.aiProvider.toUpperCase());
+        
+        // Nach erfolgreicher Generierung: Schritt als abgeschlossen markieren
+        // und keinen Schritt mehr als aktiv setzen
+        setCurrentStep(steps.length + 1); // Setze auf einen Schritt nach dem letzten
       } else {
         setLoadingMessage('📝 Dein Prompt wird generiert...');
         await new Promise(resolve => setTimeout(resolve, 1000));
         const generatedOutput = generatePrompt(formData);
         setOutput(generatedOutput);
         setAiModel('');
+        
+        // Markiere den Zusammenfassungsschritt als abgeschlossen
+        if (!completedSteps.includes(steps.length)) {
+          setCompletedSteps([...completedSteps, steps.length]);
+        }
+        
+        // Nach erfolgreicher Generierung: keinen Schritt mehr als aktiv setzen
+        setCurrentStep(steps.length + 1); // Setze auf einen Schritt nach dem letzten
       }
     } catch (error) {
       if (process.env.NODE_ENV === 'development') {
@@ -260,7 +271,7 @@ export function RoutePlanner() {
                         isActive
                           ? "bg-gradient-to-r from-[#F59B0A] to-[#E67E22] text-white shadow-lg"
                           : isDone
-                          ? "bg-primary text-white"
+                          ? "bg-[rgb(50,110,89)] text-white"
                           : "bg-gray-200 text-gray-400"
                       }`}
                     >
@@ -383,47 +394,53 @@ export function RoutePlanner() {
                 </div>
               )}
             </div>
+          </div>
 
-            {/* Navigation Buttons */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-8 pt-4 border-t border-gray-200">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={prevStep}
-                disabled={currentStep === 1}
-                className="gap-2 w-full md:w-auto"
-              >
-                <ChevronLeft className="h-4 w-4" />
-                Zurück
-              </Button>
-              
-              {currentStep < steps.length ? (
-                <Button
-                  type="button"
-                  onClick={nextStep}
-                  disabled={!isStepValid()}
-                  className="gap-2 bg-[#F59B0A] hover:bg-[#E67E22] w-full md:w-auto"
-                >
-                  Weiter
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              ) : (
-                <Button
-                  type="button"
-                  onClick={handleSubmit}
-                  size="lg"
-                  className="gap-2 px-4 md:px-6 bg-[#F59B0A] hover:bg-[#E67E22] text-white w-full md:w-auto"
-                  disabled={isLoading || !formData.startPoint || !formData.destination || (aiSettings.useDirectAI && !isModelSelected())}
-                >
-                  <MapPin className="h-5 w-5" />
-                  {aiSettings.useDirectAI ? 'Route Generieren' : 'Prompt Generieren'}
-                </Button>
-              )}
-            </div>
+            {/* Navigation Buttons - Nur anzeigen, wenn wir uns in einem der Schritte befinden */}
+            {currentStep <= steps.length && (
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-8 pt-4 border-t border-gray-200">
+                {currentStep > 1 && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={prevStep}
+                    className="gap-2 w-full md:w-auto rounded-full"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                    Zurück
+                  </Button>
+                )}
+                
+                <div className={`w-full flex ${currentStep > 1 ? 'md:w-auto justify-end' : 'justify-end'}`}>
+                  {currentStep < steps.length ? (
+                    <Button
+                      type="button"
+                      onClick={nextStep}
+                      disabled={!isStepValid()}
+                      className="gap-2 bg-[#F59B0A] hover:bg-[#E67E22] text-white w-full md:w-auto rounded-full"
+                    >
+                      Weiter
+                      <ChevronRight className="h-4 w-4" />
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      onClick={handleSubmit}
+                      size="lg"
+                      className="gap-2 px-4 md:px-6 bg-[#F59B0A] hover:bg-[#E67E22] text-white w-full md:w-auto rounded-full"
+                      disabled={isLoading || !formData.startPoint || !formData.destination || (aiSettings.useDirectAI && !isModelSelected())}
+                    >
+                      <MapPin className="h-5 w-5" />
+                      {aiSettings.useDirectAI ? 'Route Generieren' : 'Prompt Generieren'}
+                    </Button>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
           
           {/* Output */}
-          <div className="mt-8">
+          <div className="mt-8 max-w-4xl mx-auto">
             <OutputSection
               output={output}
               isLoading={isLoading}
@@ -434,7 +451,6 @@ export function RoutePlanner() {
               useDirectAI={aiSettings.useDirectAI}
             />
           </div>
-        </div>
       </section>
 
       {/* FAQ Section */}

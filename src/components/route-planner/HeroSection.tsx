@@ -20,7 +20,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex items-center justify-center gap-0.5 mb-0 md:mb-6 pt-20 md:pt-0"
+          className="flex items-center justify-center gap-0.5 mb-0 md:mb-6 pt-24 md:pt-0 max-sm:pt-32"
         >
           <img src="/favicon-original-final.svg" alt="KI-Routenplaner Logo" className="w-12 h-12" style={{ filter: 'brightness(0) saturate(100%) invert(40%) sepia(95%) saturate(600%) hue-rotate(5deg) brightness(100%) contrast(120%)' }} />
           <span className="text-[#F59B0A] font-medium tracking-wide uppercase">
@@ -32,7 +32,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="text-3xl md:text-8xl lg:text-9xl font-bold text-white mb-0 md:mb-6 leading-tight pt-8 md:pt-0"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-bold text-white mb-0 md:mb-6 leading-tight pt-8 md:pt-0"
         >
           Camping Route
         </motion.h1>
@@ -41,7 +41,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-xl md:text-2xl text-white/80 font-light mb-16 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-white/80 font-light mb-16 max-w-2xl mx-auto pt-10"
         >
           Plane deine perfekte Wohnmobil-Reise mit KI-gestützter Routenplanung
           und intelligenten Empfehlungen.
@@ -54,7 +54,7 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="#main-content"
+            href="#planner"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#F59B0A] to-[#E67E22] text-white font-semibold text-lg shadow-lg hover:scale-105 transition-transform duration-200"
           >
             <MapPin className="w-5 h-5" />

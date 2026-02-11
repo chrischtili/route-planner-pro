@@ -1,7 +1,7 @@
 # Camping Route - KI Wohnmobil Routenplaner
 
-[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/chrischtili/route-planner-pro)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/chrischtili/route-planner-pro/blob/main/LICENSE)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/chrischtili/campingrouteapp)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/chrischtili/campingrouteapp/blob/main/LICENSE)
 
 ## Über das Projekt
 
@@ -27,7 +27,7 @@ Camping Route ist ein KI-gestützter Wohnmobil-Routenplaner, der dir hilft, die 
 
 1. Repository klonen:
 ```bash
-git clone https://github.com/chrischtili/route-planner-pro.git
+git clone https://github.com/chrischtili/campingrouteapp.git
 ```
 
 2. Abhängigkeiten installieren:

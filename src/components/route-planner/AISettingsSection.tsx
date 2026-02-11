@@ -44,15 +44,15 @@ export function AISettingsSection({ aiSettings, onAISettingsChange, aiError }: A
           <button
             type="button"
             onClick={() => onAISettingsChange({ useDirectAI: false })}
-            className={`p-4 rounded-lg border-2 text-left transition-all ${
+            className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer ${
               !aiSettings.useDirectAI 
-                ? 'border-primary bg-primary/5' 
-                : 'border-border hover:border-primary/50'
+                ? 'border-orange-500 bg-orange-50 shadow-sm' 
+                : 'border-border bg-background hover:border-orange-500 hover:bg-orange-50 hover:shadow-sm'
             }`}
           >
             <div className="flex items-center gap-3 mb-2">
-              <FileText className="h-6 w-6 text-primary" />
-              <span className="font-semibold">Prompt generieren</span>
+              <FileText className={`h-6 w-6 ${!aiSettings.useDirectAI ? 'text-orange-600' : 'text-foreground'}`} />
+              <span className={`font-semibold ${!aiSettings.useDirectAI ? 'text-orange-600' : 'text-foreground'}`}>Prompt generieren</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Erstellt einen fertigen Prompt, den du in deine KI einfügen kannst
@@ -62,15 +62,15 @@ export function AISettingsSection({ aiSettings, onAISettingsChange, aiError }: A
           <button
             type="button"
             onClick={() => onAISettingsChange({ useDirectAI: true })}
-            className={`p-4 rounded-lg border-2 text-left transition-all ${
+            className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer ${
               aiSettings.useDirectAI 
-                ? 'border-primary bg-primary/5' 
-                : 'border-border hover:border-primary/50'
+                ? 'border-orange-500 bg-orange-50 shadow-sm' 
+                : 'border-border bg-background hover:border-orange-500 hover:bg-orange-50 hover:shadow-sm'
             }`}
           >
             <div className="flex items-center gap-3 mb-2">
-              <Bot className="h-6 w-6 text-primary" />
-              <span className="font-semibold">KI direkt nutzen</span>
+              <Bot className={`h-6 w-6 ${aiSettings.useDirectAI ? 'text-orange-600' : 'text-foreground'}`} />
+              <span className={`font-semibold ${aiSettings.useDirectAI ? 'text-orange-600' : 'text-foreground'}`}>KI direkt nutzen</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Ruft die KI direkt auf und zeigt dir das Ergebnis an

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Footer } from "@/components/ui/footer";
+import { Footer } from "@/components/route-planner/Footer";
 
 export default function Datenschutz() {
   return (

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Footer } from "@/components/ui/footer";
+import { Footer } from "@/components/route-planner/Footer";
 
 export default function Impressum() {
   return (
@@ -22,8 +22,8 @@ export default function Impressum() {
               <p>Bei Fragen oder Feedback zum Projekt:</p>
               <p>Christian Kopmann</p>
               <p>E-Mail: info@campingroute.app</p>
-              <p>GitHub: <a href="https://github.com/chrischtili/route-planner-pro" className="text-primary hover:underline">
-                https://github.com/chrischtili/route-planner-pro
+              <p>GitHub: <a href="https://github.com/chrischtili/campingrouteapp" className="text-primary hover:underline">
+                https://github.com/chrischtili/campingrouteapp
               </a></p>
             </section>
 
@@ -46,7 +46,7 @@ export default function Impressum() {
                 Beiträge und Verbesserungsvorschläge sind willkommen!
               </p>
               <p className="text-sm mt-2">
-                <a href="https://github.com/chrischtili/route-planner-pro" className="text-primary hover:underline">
+                <a href="https://github.com/chrischtili/campingrouteapp" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                   → Zum GitHub-Repository
                 </a>
               </p>
