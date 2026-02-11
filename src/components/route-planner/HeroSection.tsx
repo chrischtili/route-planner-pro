@@ -2,7 +2,7 @@ import { MapPin, Compass } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative h-[90vh] flex items-center justify-center overflow-hidden pt-20 mb-8" id="home">
+    <section className="relative h-[90vh] flex items-center justify-center overflow-hidden pt-20" id="home">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
