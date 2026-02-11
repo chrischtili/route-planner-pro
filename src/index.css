@@ -1,253 +1,57 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Screen reader only utility class */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+/* Fonts */
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/fonts/DMSerifDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-.sr-only.focus:not-sr-only {
-  position: static;
-  width: auto;
-  height: auto;
-  padding: 0.5rem 1rem;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-.sr-only.focus:not-sr-only {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  border-radius: 0.25rem;
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
   font-weight: 600;
-  z-index: 50;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
-  :root {
-    --background: 60 4% 95%;
-    --foreground: 24 9% 10%;
-
-    --card: 60 9% 97%;
-    --card-foreground: 24 9% 10%;
-
-    --popover: 20 5% 90%;
-    --popover-foreground: 24 9% 10%;
-
-    --primary: 37 92% 50%;
-    --primary-foreground: 47 100% 96%;
-
-    --secondary: 24 5% 44%;
-    --secondary-foreground: 60 9% 97%;
-
-    --muted: 23 5% 82%;
-    --muted-foreground: 24 9% 10%;
-
-    --accent: 47 100% 96%;
-    --accent-foreground: 37 92% 50%;
-
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 85% 97%;
-
-    --border: 23 5% 82%;
-    --input: 23 5% 82%;
-    --ring: 37 92% 50%;
-
-    --radius: 1rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 24 9% 10%;
-
-    --sidebar-primary: 37 92% 50%;
-
-    --sidebar-primary-foreground: 47 100% 96%;
-
-    --sidebar-accent: 24 5% 44%;
-
-    --sidebar-accent-foreground: 60 9% 97%;
-
-    --sidebar-border: 23 5% 82%;
-
-    --sidebar-ring: 37 92% 50%;
-
-    --chart-1: 45 96% 64%;
-
-    --chart-2: 47 95% 53%;
-
-    --chart-3: 43 96% 56%;
-
-    --chart-4: 37 92% 50%;
-
-    --chart-5: 24 5% 44%;
-
-    --sidebar: 60 9% 97%;
-
-    --font-sans: 'Source Sans Pro', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-
-    --font-serif: 'Source Serif Pro', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-
-    --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-
-    --tracking-normal: 0em;
-
-    --spacing: 0.25rem;
-  }
-  :root {
-    --background: 60 4% 95%;
-    --foreground: 24 9% 10%;
-
-    --card: 60 9% 97%;
-    --card-foreground: 24 9% 10%;
-
-    --popover: 20 5% 90%;
-    --popover-foreground: 24 9% 10%;
-
-    --primary: 37 92% 50%;
-    --primary-foreground: 47 100% 96%;
-
-    --secondary: 24 5% 44%;
-    --secondary-foreground: 60 9% 97%;
-
-    --muted: 23 5% 82%;
-    --muted-foreground: 24 9% 10%;
-
-    --accent: 47 100% 96%;
-    --accent-foreground: 37 92% 50%;
-
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 85% 97%;
-
-    --border: 23 5% 82%;
-    --input: 23 5% 82%;
-    --ring: 37 92% 50%;
-
-    --radius: 1rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 24 9% 10%;
-
-    --sidebar-primary: 37 92% 50%;
-
-    --sidebar-primary-foreground: 47 100% 96%;
-
-    --sidebar-accent: 24 5% 44%;
-
-    --sidebar-accent-foreground: 60 9% 97%;
-
-    --sidebar-border: 23 5% 82%;
-
-    --sidebar-ring: 37 92% 50%;
-
-    --chart-1: 45 96% 64%;
-
-    --chart-2: 47 95% 53%;
-
-    --chart-3: 43 96% 56%;
-
-    --chart-4: 37 92% 50%;
-
-    --chart-5: 24 5% 44%;
-
-    --sidebar: 60 9% 97%;
-
-    --font-sans: 'Source Sans Pro', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-
-    --font-serif: 'Source Serif Pro', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-
-    --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-
-    --tracking-normal: 0em;
-
-    --spacing: 0.25rem;
-  }
-
-  /* Date input styling for mobile */
-  input[type="date"] {
-    appearance: none;
-    -webkit-appearance: none;
-    padding: 0.5rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.375rem;
-    background-color: #ffffff;
-    color: #1e293b;
-    width: 100%;
-    height: 2.5rem;
-  }
-
-  input[type="date"]::-webkit-calendar-picker-indicator {
-    background: transparent;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 2.5rem;
-    cursor: pointer;
-    color: transparent;
-    background: transparent;
-  }
-
-  /* Ensure proper spacing */
-  .space-y-2 {
-    margin-bottom: 1rem;
-  }
-
-  /* Fix for mobile date input overflow */
-  @media (max-width: 768px) {
-    input[type="date"] {
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-  }
-
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-display: 'DM Serif Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}

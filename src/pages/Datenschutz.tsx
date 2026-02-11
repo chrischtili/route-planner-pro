@@ -33,10 +33,11 @@ export default function Datenschutz() {
                 Die Daten bleiben auf Ihrem Gerät und werden gelöscht, wenn Sie den Browser-Cache leeren.
               </p>
               <p className="text-sm mt-2">
-                <strong>Lokale Fonts:</strong> Diese Website verwendet ausschließlich Systemschriftarten (Arial, Helvetica, Georgia, 
-                Times New Roman, Menlo, etc.) und greift auf lokale Font-Familien zurück, die bereits auf Ihrem Gerät 
-                installiert sind. Es werden keine externen Fonts von Drittanbietern geladen und keine Font-Dateien von 
-                unseren Servern bereitgestellt, um maximale DSGVO-Konformität zu gewährleisten.
+                <strong>Lokale Fonts:</strong> Diese Website verwendet lokal gehostete Schriftarten (DM Serif Display und Inter), 
+                die auf unseren Servern gespeichert sind. Diese Schriftarten werden direkt von unseren Servern geladen, 
+                um eine optimale Darstellung zu gewährleisten. Es werden keine externen Fonts von Drittanbietern wie 
+                Google Fonts oder anderen CDNs geladen, um maximale DSGVO-Konformität zu gewährleisten. Die Schriftarten 
+                werden nur temporär in Ihrem Browser zwischengespeichert und nicht dauerhaft auf Ihrem Gerät gespeichert.
               </p>
               <p className="text-sm mt-2">
                 <strong>KI-Integration:</strong> Wenn Sie die direkte KI-Funktion nutzen, werden Ihre Daten an den von 

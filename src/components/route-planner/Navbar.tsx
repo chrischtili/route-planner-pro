@@ -47,7 +47,7 @@ export function Navbar() {
 
         <a
           href="#planner"
-          className="px-5 py-2 rounded-full bg-gradient-to-r from-[#F59B0A] to-[#E67E22] text-white font-semibold text-sm shadow-soft hover:scale-105 transition-transform"
+          className="px-5 py-2 rounded-full bg-gradient-to-r from-[#F59B0A] to-[#E67E22] text-white font-semibold text-sm shadow-soft hover:scale-105 transition-transform md:ml-4"
         >
           Jetzt planen
         </a>

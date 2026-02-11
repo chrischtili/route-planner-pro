@@ -20,7 +20,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex items-center justify-center gap-0.5 mb-6"
+          className="flex items-center justify-center gap-0.5 mb-0 md:mb-6 pt-20 md:pt-0"
         >
           <img src="/favicon-original-final.svg" alt="KI-Routenplaner Logo" className="w-12 h-12" style={{ filter: 'brightness(0) saturate(100%) invert(40%) sepia(95%) saturate(600%) hue-rotate(5deg) brightness(100%) contrast(120%)' }} />
           <span className="text-[#F59B0A] font-medium tracking-wide uppercase">
@@ -32,7 +32,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight"
+          className="text-3xl md:text-8xl lg:text-9xl font-bold text-white mb-0 md:mb-6 leading-tight pt-8 md:pt-0"
         >
           Camping Route
         </motion.h1>
@@ -41,7 +41,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-xl md:text-2xl text-white/80 font-light mb-10 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-white/80 font-light mb-16 max-w-2xl mx-auto"
         >
           Plane deine perfekte Wohnmobil-Reise mit KI-gestützter Routenplanung
           und intelligenten Empfehlungen.
