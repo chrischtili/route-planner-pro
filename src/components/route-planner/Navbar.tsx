@@ -1,12 +1,20 @@
 import { Compass, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const featuresSectionRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const featuresSection = document.getElementById('features');
+      if (featuresSection) {
+        const featuresTop = featuresSection.getBoundingClientRect().top;
+        setScrolled(featuresTop <= 0);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -75,25 +83,26 @@ export function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg">
-          <div className="px-4 py-4 space-y-3">
+        <div
+          className="md:hidden bg-background/95 backdrop-blur-lg"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <div
+            className="px-4 py-4 space-y-3"
+            onClick={(e) => e.stopPropagation()}
+          >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 px-4 rounded-lg text-foreground font-medium hover:bg-accent transition-colors"
+                className={`block py-3 px-4 rounded-lg font-medium hover:bg-accent transition-colors ${
+                  scrolled ? "text-foreground" : "text-white"
+                }`}
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#planner"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-3 px-4 rounded-lg bg-gradient-to-r from-[#F59B0A] to-[#E67E22] text-white font-semibold text-center shadow-soft hover:scale-105 transition-transform"
-            >
-              Jetzt planen
-            </a>
           </div>
         </div>
       )}
