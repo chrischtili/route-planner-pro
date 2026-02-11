@@ -28,6 +28,7 @@ import { Navbar } from "./Navbar";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Footer } from "@/components/ui/footer";
+import { motion } from "framer-motion";
 
 // Schritt-Definitionen mit Icons für das neue Design
 export function RoutePlanner() {
@@ -200,7 +201,7 @@ export function RoutePlanner() {
   };
 
   return (
-    <main className="min-h-screen" style={{ backgroundColor: 'rgb(252, 250, 248)' }} id="main-content">
+    <main className="min-h-screen" style={{ backgroundColor: 'rgb(250, 244, 235)' }} id="main-content">
       {/* Navbar */}
       <Navbar />
       
@@ -219,14 +220,20 @@ export function RoutePlanner() {
       {/* Main Content - Step-by-Step Assistant */}
       <section id="planner" className="py-24 px-4" style={{ backgroundColor: 'rgb(252, 250, 248)' }}>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <span className="text-[#F59B0A] font-semibold text-sm uppercase tracking-widest">
               Routenplaner
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-3">
               In 7 Schritten zur perfekten Route
             </h2>
-          </div>
+          </motion.div>
 
           {/* Progress bar - Neues Design */}
           <div className="mb-12">
