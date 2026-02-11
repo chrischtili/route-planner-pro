@@ -1,0 +1,61 @@
+import { Compass, Zap, Filter, Shield } from "lucide-react";
+
+const features = [
+  {
+    icon: Compass,
+    title: "KI-Routenplanung",
+    description: "Intelligente Routen, die Staus vermeiden und Wohnmobil-Beschränkungen berücksichtigen.",
+  },
+  {
+    icon: Filter,
+    title: "Smarte Filter",
+    description: "Filtere nach Budget, Fahrzeuggröße, Interessen und Stellplatz-Ausstattung.",
+  },
+  {
+    icon: Zap,
+    title: "Sofort startklar",
+    description: "Keine Registrierung nötig. In unter 3 Minuten zur fertigen Route.",
+  },
+  {
+    icon: Shield,
+    title: "Datenschutz first",
+    description: "Keine Datenspeicherung. Alles bleibt lokal in deinem Browser.",
+  },
+];
+
+export function FeaturesSection() {
+  return (
+    <section className="py-24 px-4 bg-gray-50" id="features">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-[#F59B0A] font-semibold text-sm uppercase tracking-widest">
+            Features
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-3">
+            Warum Camping Route?
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((f, i) => {
+            const Icon = f.icon;
+            return (
+              <div
+                key={i}
+                className="bg-white rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow duration-300 group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#F59B0A] to-[#E67E22] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-lg text-foreground mb-2">{f.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {f.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
