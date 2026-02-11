@@ -1,254 +1,294 @@
-import { Info, HelpCircle, Lightbulb, Bot, Map, Star, FileText, Tent, CheckCircle, Calendar, Euro } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { KIExampleRoute } from "./KIExampleRoute";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { motion } from "framer-motion";
+
+const faqs = [
+  {
+    q: "Ist Camping Route kostenlos?",
+    a: (
+      <div className="space-y-3">
+        <p><strong>✅ Ja, komplett kostenlos!</strong></p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-gray-50 p-3 rounded-lg">
+            <h4 className="font-semibold mb-2 flex items-center gap-2">
+              <span>📝</span> Ohne API:
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-sm">
+              <li>Prompt-Generierung</li>
+              <li>Keine Kosten</li>
+              <li>Volle Kontrolle über den Prozess</li>
+            </ul>
+          </div>
+          <div className="bg-gray-50 p-3 rounded-lg">
+            <h4 className="font-semibold mb-2 flex items-center gap-2">
+              <span>🤖</span> Mit API:
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-sm">
+              <li>Direkte Routengenerierung</li>
+              <li>API-Kosten trägst du selbst (~5-12 Cent pro Anfrage)</li>
+              <li>Schnellere Ergebnisse</li>
+            </ul>
+          </div>
+        </div>
+        <div className="bg-blue-50 p-3 rounded-lg text-sm">
+          <p className="flex items-center gap-2 mb-1">
+            <span>ℹ️</span>
+            <strong>Keine versteckten Kosten:</strong>
+          </p>
+          <p>Keine Abonnements, keine versteckten Gebühren. Du zahlst nur für deine eigene API-Nutzung, wenn du dich dafür entscheidest.</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    q: "Welches KI-Modell sollte ich wählen?",
+    a: (
+      <div>
+        <p className="mb-3"><strong>Empfehlung:</strong> Google Gemini 3 Pro Preview für beste Ergebnisse</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="bg-yellow-50 p-3 rounded-lg">
+            <h4 className="font-semibold mb-2 flex items-center gap-1 text-sm">
+              <span>🌟</span> Google Gemini
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-xs">
+              <li>Beste geografische Daten</li>
+              <li>Präzise Stellplatzempfehlungen</li>
+              <li>Kosteneffizient</li>
+            </ul>
+          </div>
+          <div className="bg-green-50 p-3 rounded-lg">
+            <h4 className="font-semibold mb-2 flex items-center gap-1 text-sm">
+              <span>🤖</span> OpenAI GPT-5.2
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-xs">
+              <li>Maximale Detailtiefe</li>
+              <li>Komplexe Anforderungen</li>
+              <li>Höchste Qualität</li>
+            </ul>
+          </div>
+          <div className="bg-purple-50 p-3 rounded-lg">
+            <h4 className="font-semibold mb-2 flex items-center gap-1 text-sm">
+              <span>⚡</span> Mistral AI
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-xs">
+              <li>Kosteneffizient</li>
+              <li>Europäische Routen</li>
+              <li>Gute Qualität</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    q: "Was macht Camping Route einzigartig?",
+    a: (
+      <div>
+        <p className="mb-3"><strong>Der einzige KI-Routenplaner speziell für Wohnmobile!</strong></p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="bg-gray-50 p-3 rounded-lg">
+            <h4 className="font-semibold mb-2 flex items-center gap-2 text-sm">
+              <span>🎯</span> Präzise Filter:
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-sm">
+              <li>Fahrzeugdaten (Größe, Gewicht)</li>
+              <li>Budget (günstig bis premium)</li>
+              <li>Interessen (Natur, Stadt, Familie)</li>
+            </ul>
+          </div>
+          <div className="bg-gray-50 p-3 rounded-lg">
+            <h4 className="font-semibold mb-2 flex items-center gap-2 text-sm">
+              <span>🗺️</span> Intelligente Routen:
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-sm">
+              <li>Stellplätze nach deinen Kriterien</li>
+              <li>Lokale Attraktionen</li>
+              <li>Optimale Etappenplanung</li>
+            </ul>
+          </div>
+        </div>
+        <div className="bg-blue-50 p-3 rounded-lg mt-3 text-sm">
+          <p className="flex items-center gap-2 mb-1">
+            <span>💡</span>
+            <strong>Transparenter Prozess:</strong>
+          </p>
+          <p>Du behältst immer die Kontrolle - keine "Black Box" Ergebnisse wie bei anderen Planern!</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    q: "Prompt vs. KI-Generierung - was ist der Unterschied?",
+    a: (
+      <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-orange-50 p-4 rounded-lg text-center">
+            <div className="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span className="text-orange-600 text-xl">📝</span>
+            </div>
+            <h4 className="font-semibold mb-2">Ohne API (kostenlos)</h4>
+            <ul className="list-disc list-inside space-y-1 text-sm text-left">
+              <li>Optimierter Prompt</li>
+              <li>Für deine bevorzugte KI</li>
+              <li>Volle Kontrolle</li>
+              <li>Keine Kosten</li>
+            </ul>
+          </div>
+          <div className="bg-green-50 p-4 rounded-lg text-center">
+            <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span className="text-green-600 text-xl">⚡</span>
+            </div>
+            <h4 className="font-semibold mb-2">Mit API (Kosten ~8-12 Cent)</h4>
+            <ul className="list-disc list-inside space-y-1 text-sm text-left">
+              <li>Direkte Routengenerierung</li>
+              <li>Fertige Route mit Details</li>
+              <li>Schnelleres Ergebnis</li>
+              <li>API-Kosten trägst du</li>
+            </ul>
+          </div>
+        </div>
+        <div className="bg-gray-50 p-3 rounded-lg mt-4 text-sm">
+          <p className="flex items-center gap-2 mb-1">
+            <span>ℹ️</span>
+            <strong>Tipp:</strong>
+          </p>
+          <p>Probiere zuerst die kostenlose Prompt-Generierung aus, bevor du eine API einbindest!</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    q: "Wie werden meine Daten geschützt?",
+    a: (
+      <div className="flex flex-col md:flex-row gap-4 items-start">
+        <div className="flex-shrink-0">
+          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+            <span className="text-red-600 text-2xl">🔒</span>
+          </div>
+        </div>
+        <div className="flex-1">
+          <p className="mb-3"><strong>100% lokal - 100% sicher!</strong></p>
+          <ul className="list-disc list-inside space-y-2">
+            <li><strong>Keine Cloud-Speicherung:</strong> Alle Daten bleiben in deinem Browser</li>
+            <li><strong>Keine Tracking-Cookies:</strong> Wir sammeln keine Nutzerdaten</li>
+            <li><strong>DSGVO-konform:</strong> Keine Datenweitergabe an Dritte</li>
+            <li><strong>Offline-fähig:</strong> Einmal generierte Routen kannst du offline nutzen</li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+  {
+    q: "Kann ich Routen offline nutzen?",
+    a: (
+      <div className="flex flex-col md:flex-row gap-4 items-start">
+        <div className="flex-shrink-0">
+          <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
+            <span className="text-indigo-600 text-2xl">📱</span>
+          </div>
+        </div>
+        <div className="flex-1">
+          <p className="mb-3"><strong>Ja, komplett offline-fähig!</strong></p>
+          <ul className="list-disc list-inside space-y-2">
+            <li><strong>Exportieren:</strong> Als Text kopieren oder PDF herunterladen</li>
+            <li><strong>Speichern:</strong> Alle Daten bleiben auf deinem Gerät</li>
+            <li><strong>Nutzen:</strong> Ohne Internetverbindung verwenden</li>
+            <li><strong>Teilen:</strong> Per E-Mail oder Messenger versenden</li>
+          </ul>
+          <div className="bg-yellow-50 p-3 rounded-lg mt-3 text-sm">
+            <p className="flex items-center gap-2">
+              <span>💡</span>
+              <strong>Tipp:</strong> Lade deine Route vor der Reise herunter, um unterwegs ohne Internet darauf zugreifen zu können!
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    q: "Welche Fahrzeugtypen werden unterstützt?",
+    a: (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="bg-teal-50 p-3 rounded-lg text-center">
+          <div className="w-12 h-12 bg-teal-200 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <span className="text-teal-600 text-xl">🚐</span>
+          </div>
+          <p className="text-sm font-medium">Wohnmobile</p>
+          <p className="text-xs text-gray-600">Voll unterstützt</p>
+        </div>
+        <div className="bg-teal-50 p-3 rounded-lg text-center">
+          <div className="w-12 h-12 bg-teal-200 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <span className="text-teal-600 text-xl">🏕️</span>
+          </div>
+          <p className="text-sm font-medium">Camper</p>
+          <p className="text-xs text-gray-600">Voll unterstützt</p>
+        </div>
+        <div className="bg-gray-50 p-3 rounded-lg text-center opacity-70">
+          <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <span className="text-gray-400 text-xl">🚛</span>
+          </div>
+          <p className="text-sm font-medium">Wohnwagen</p>
+          <p className="text-xs text-gray-500">In Planung</p>
+        </div>
+        <div className="bg-gray-50 p-3 rounded-lg text-center opacity-70">
+          <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mx-auto mb-2">
+            <span className="text-gray-400 text-xl">🏍️</span>
+          </div>
+          <p className="text-sm font-medium">Motorräder</p>
+          <p className="text-xs text-gray-500">Geplant</p>
+        </div>
+      </div>
+    ),
+  },
+];
 
 export function FAQSection() {
-  const faqItems = [
-    {
-      question: "Wie funktioniert die KI-Routenplanung?",
-      answer: (
-        <div className="space-y-4">
-          <p>
-            Unsere KI-Routenplanung nutzt fortschrittliche Algorithmen, um maßgeschneiderte Wohnmobil-Routen zu erstellen. Die KI berücksichtigt deine Fahrzeugdaten, Reiseziele, Interessen und Budget, um die perfekte Route für dich zu planen.
-          </p>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Analyse deiner Eingaben (Fahrzeuggröße, Reisezeit, Budget, Interessen)</li>
-            <li>Berücksichtigung von Verkehrsdaten, Wetterbedingungen und lokalen Events</li>
-            <li>Vorschläge für Stellplätze, Aktivitäten und Sehenswürdigkeiten</li>
-            <li>Optimierung der Route für entspannte Fahrten mit schweren Wohnmobilen</li>
-          </ul>
-          <p>
-            Das Ergebnis ist eine detaillierte Tagesplanung mit allen wichtigen Informationen für deine Reise.
-          </p>
-        </div>
-      )
-    },
-    {
-      question: "Was macht diese KI besonders?",
-      answer: (
-        <div className="space-y-4">
-          <p>
-            Unsere KI geht weit über einfache Routenplanung hinaus:
-          </p>
-          <ul className="list-disc list-inside space-y-2">
-            <li><strong>Fahrzeugspezifische Optimierung:</strong> Berücksichtigt Gewicht, Höhe und Länge deines Wohnmobils</li>
-            <li><strong>Feiertags- und Verkehrsdaten:</strong> Warnt vor Staus und empfiehlt alternative Routen</li>
-            <li><strong>Autarkie-Unterstützung:</strong> Finds auch Stellplätze ohne Vollausstattung für autarke Fahrzeuge</li>
-            <li><strong>Hundefreundliche Optionen:</strong> Zeigt Stellplätze und Aktivitäten, die für Hunde geeignet sind</li>
-            <li><strong>Budget-Optimierung:</strong> Vorschläge für kostengünstige Alternativen</li>
-            <li><strong>Kulturelle Tipps:</strong> Lokale Bräuche und wichtige Informationen für die Region</li>
-          </ul>
-          <p>
-            Die KI generiert nicht nur eine Route, sondern ein komplett durchdachtes Reiseerlebnis.
-          </p>
-        </div>
-      )
-    },
-    {
-      question: "Kann ich die KI-Ausgabe anpassen?",
-      answer: (
-        <div className="space-y-4">
-          <p>
-            Ja, die KI-Ausgabe ist vollständig anpassbar. Du kannst:
-          </p>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Die Route in dein Navigationssystem importieren</li>
-            <li>Einzelne Etappen ändern oder überspringen</li>
-            <li>Alternative Stellplätze auswählen</li>
-            <li>Aktivitäten nach deinen Vorlieben anpassen</li>
-            <li>Die komplette Route als PDF speichern und ausdrucken</li>
-          </ul>
-          <p>
-            Die KI gibt dir eine solide Grundlage, die du nach Belieben individualisieren kannst.
-          </p>
-        </div>
-      )
-    },
-    {
-      question: "Wie detailliert sind die KI-Routen?",
-      answer: (
-        <div className="space-y-4">
-          <p>
-            Unsere KI generiert extrem detaillierte Routen mit allen wichtigen Informationen:
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <h4 className="font-medium mb-2 flex items-center gap-1">
-                <Map className="h-4 w-4 text-primary" /> Routeninformationen
-              </h4>
-              <ul className="list-disc list-inside space-y-1 text-sm">
-                <li>Tagesweise Planung mit Distanzen</li>
-                <li>Fahrzeiten mit Puffer für Pausen</li>
-                <li>Alternative Routen bei Staugefahr</li>
-                <li>Verkehrshinweise und Baustellen</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-2 flex items-center gap-1">
-                <Tent className="h-4 w-4 text-primary" /> Übernachtungen
-              </h4>
-              <ul className="list-disc list-inside space-y-1 text-sm">
-                <li>Mehrere Stellplatz-Optionen pro Tag</li>
-                <li>Bewertungen und Preise</li>
-                <li>Ausstattungsdetails</li>
-                <li>Hundefreundliche Optionen</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-2 flex items-center gap-1">
-                <Star className="h-4 w-4 text-primary" /> Aktivitäten
-              </h4>
-              <ul className="list-disc list-inside space-y-1 text-sm">
-                <li>Sehenswürdigkeiten entlang der Route</li>
-                <li>Wander- und Radtouren</li>
-                <li>Kulturelle Highlights</li>
-                <li>Lokale Events und Märkte</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-2 flex items-center gap-1">
-                <FileText className="h-4 w-4 text-primary" /> Praktische Tipps
-              </h4>
-              <ul className="list-disc list-inside space-y-1 text-sm">
-                <li>Tankstellen mit Lkw-Zugang</li>
-                <li>Einkaufsmöglichkeiten</li>
-                <li>Entsorgungsstationen</li>
-                <li>Notfallkontakte</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      question: "Für welche Fahrzeugtypen ist die KI geeignet?",
-      answer: (
-        <div className="space-y-4">
-          <p>
-            Unsere KI ist speziell für Wohnmobile und Camper optimiert und berücksichtigt:
-          </p>
-          <ul className="list-disc list-inside space-y-2">
-            <li><strong>Kleine Camper (bis 3,5t):</strong> Standard-Routen mit normalen Stellplätzen</li>
-            <li><strong>Mittlere Wohnmobile (3,5t-5t):</strong> Routen mit Gewichtseinschränkungen</li>
-            <li><strong>Schwere Wohnmobile (5t+):</strong> Spezielle Routen mit Lkw-Beschränkungen</li>
-            <li><strong>Hohe Fahrzeuge (3m+):</strong> Brückenhöhen-Check und alternative Routen</li>
-            <li><strong>Lange Fahrzeuge (7m+):</strong> Stellplätze mit ausreichend Platz</li>
-            <li><strong>Autarke Fahrzeuge:</strong> Stellplätze ohne Vollausstattung</li>
-          </ul>
-          <p>
-            Gib einfach deine Fahrzeugdaten ein, und die KI passt die Route entsprechend an.
-          </p>
-        </div>
-      )
-    }
-  ];
-
   return (
-    <Card className="mt-8">
-      <CardHeader className="bg-primary/5 border-b border-border">
-        <CardTitle className="flex items-center gap-3">
-          <HelpCircle className="h-5 w-5 text-primary" />
-          Häufige Fragen zur KI-Routenplanung
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="pt-6">
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* FAQ Akkordeon */}
-          <div>
-            <Accordion type="single" collapsible className="w-full">
-              {faqItems.map((item, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left">
-                    <div className="flex items-center gap-3">
-                      <HelpCircle className="h-4 w-4 text-primary" />
-                      {item.question}
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="pt-4 text-muted-foreground">
-                      {item.answer}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+    <section id="faq" className="py-24 px-4" style={{ backgroundColor: 'rgb(250, 244, 235)' }}>
+      <div className="max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-[#F59B0A] font-semibold text-sm uppercase tracking-widest">
+            FAQ
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-3">
+            Häufige Fragen
+          </h2>
+        </motion.div>
 
-          {/* Info-Box mit Beispielroute */}
-          <div className="space-y-6">
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-6">
-              <h3 className="font-semibold mb-3 flex items-center gap-2">
-                <Lightbulb className="h-5 w-5 text-primary" />
-                Was kann die KI?
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Hier siehst du ein konkretes Beispiel, was unsere KI für dich planen kann:
-              </p>
-              
-              <div className="space-y-3 text-sm">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>Detaillierte Tagesplanung mit Routen</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>Stellplatz-Empfehlungen mit Bewertungen</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>Aktivitäten und Sehenswürdigkeiten</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>Budget-Übersicht und Spartipps</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>Praktische Reise- und Fahrtipps</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>Fahrzeugspezifische Hinweise</span>
-                </div>
-              </div>
-              
-              <div className="mt-6 flex justify-center">
-                <KIExampleRoute />
-              </div>
-            </div>
-
-            <div className="bg-blue-50 rounded-lg p-4">
-              <h3 className="font-semibold mb-3 flex items-center gap-2">
-                <Bot className="h-5 w-5 text-blue-600" />
-                KI-Funktionen im Überblick
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <Star className="h-4 w-4 text-yellow-500" />
-                  <span>Intelligente Routenoptimierung</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Map className="h-4 w-4 text-green-600" />
-                  <span>Echtzeit-Verkehrsdaten</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-purple-600" />
-                  <span>Feiertags- und Event-Berücksichtigung</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Tent className="h-4 w-4 text-orange-600" />
-                  <span>Stellplatz-Datenbank mit Bewertungen</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Euro className="h-4 w-4 text-green-700" />
-                  <span>Budget-Optimierung</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((faq, i) => (
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                className="bg-white rounded-xl px-6 border-none shadow-sm"
+              >
+                <AccordionTrigger className="font-medium text-foreground text-left hover:no-underline py-5">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
+      </div>
+    </section>
   );
 }
