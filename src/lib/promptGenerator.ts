@@ -190,7 +190,7 @@ Flexibilität:
 - Rechtliche Hinweise: Informiere über die rechtlichen Bestimmungen zum Wildcamping in den jeweiligen Ländern und Regionen.
 - Tools zur Optimierung: Empfehle Tools oder Apps, mit denen ich die Route unterwegs weiter optimieren oder anpassen kann (z. B. Routenplaner, Campingplatz-Apps, Verkehrs-Apps).
 
-Zusammenfassung:
+Zusammenfassung: Fasse hier am Ende die wichtigsten Punkte der Route zusammen, damit ich einen schnellen Überblick habe. Betone dabei die Highlights und die wichtigsten Tipps für die Reise.
 `;
 }
 
