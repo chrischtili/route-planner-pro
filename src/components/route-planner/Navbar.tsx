@@ -20,7 +20,7 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2">
-          <Compass className={`w-6 h-6 transition-colors text-[#F59B0A]`} />
+          <img src="/favicon-original-final.svg" alt="Camping Route Logo" className="w-10 h-10 transition-colors" style={{ filter: 'brightness(0) saturate(100%) invert(40%) sepia(95%) saturate(600%) hue-rotate(5deg) brightness(100%) contrast(120%)' }} />
           <span className={`font-bold text-xl transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
             Camping Route
           </span>
@@ -29,9 +29,8 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: "Features", href: "#features" },
-            { label: "Erfahrungen", href: "#testimonials" },
             { label: "Beispielroute", href: "#example-route" },
-            { label: "Planer", href: "#main-content" },
+            { label: "Planer", href: "#planner" },
             { label: "FAQ", href: "#faq" },
           ].map((link) => (
             <a
@@ -47,7 +46,7 @@ export function Navbar() {
         </div>
 
         <a
-          href="#main-content"
+          href="#planner"
           className="px-5 py-2 rounded-full bg-gradient-to-r from-[#F59B0A] to-[#E67E22] text-white font-semibold text-sm shadow-soft hover:scale-105 transition-transform"
         >
           Jetzt planen

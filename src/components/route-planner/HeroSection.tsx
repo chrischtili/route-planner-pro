@@ -15,8 +15,8 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <Compass className="w-8 h-8 text-[#F59B0A]" />
+        <div className="flex items-center justify-center gap-0.5 mb-6">
+          <img src="/favicon-original-final.svg" alt="KI-Routenplaner Logo" className="w-12 h-12" style={{ filter: 'brightness(0) saturate(100%) invert(40%) sepia(95%) saturate(600%) hue-rotate(5deg) brightness(100%) contrast(120%)' }} />
           <span className="text-[#F59B0A] font-medium tracking-wide uppercase">
             KI-Routenplaner
           </span>
@@ -28,7 +28,7 @@ export function HeroSection() {
 
         <p className="text-xl md:text-2xl text-white/80 font-light mb-10 max-w-2xl mx-auto">
           Plane deine perfekte Wohnmobil-Reise mit KI-gestützter Routenplanung
-          und handverlesenen Stellplätzen.
+          und intelligenten Empfehlungen.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

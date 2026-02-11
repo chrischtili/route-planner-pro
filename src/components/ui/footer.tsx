@@ -28,7 +28,7 @@ export function Footer() {
               </Link>
               <a href="https://github.com/chrischtili/route-planner-pro" target="_blank" 
                  rel="noopener noreferrer" className="hover:text-[#F59B0A] transition-colors flex items-center gap-1">
-                <img src="/GitHub_Invertocat_Black_Clearspace.webp" alt="GitHub" 
+                <img src="/GitHub_Invertocat_White_Clearspace.png" alt="GitHub" 
                      className="w-4 h-4" width="16" height="16" loading="lazy" />
                 <span>Open Source</span>
               </a>

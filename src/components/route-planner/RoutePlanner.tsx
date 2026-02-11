@@ -217,7 +217,7 @@ export function RoutePlanner() {
       <RouteExampleSection />
 
       {/* Main Content - Step-by-Step Assistant */}
-      <section id="planner" className="py-24 px-4 bg-background">
+      <section id="planner" className="py-24 px-4" style={{ backgroundColor: 'rgb(252, 250, 248)' }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#F59B0A] font-semibold text-sm uppercase tracking-widest">
@@ -276,7 +276,7 @@ export function RoutePlanner() {
           </div>
 
           {/* Step content */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm min-h-[240px]" ref={formRef}>
+          <div className="p-8 min-h-[240px]" ref={formRef}>
             {/* Current Step Content */}
             <div className="space-y-6">
               {/* Step 1: KI-Einstellungen */}
