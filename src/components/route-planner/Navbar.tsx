@@ -1,10 +1,9 @@
-import { Compass, Menu, X } from "lucide-react";
+import { Compass } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const featuresSectionRef = useRef(null);
 
   useEffect(() => {
@@ -19,8 +18,6 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const navLinks = [
     { label: "Features", href: "#features" },
@@ -69,48 +66,8 @@ export function Navbar() {
           <ThemeToggle />
         </div>
 
-        <div className="md:hidden">
-          <button
-            onClick={toggleMobileMenu}
-            className={`p-2 rounded-full transition-all ${scrolled ? "bg-white/20" : "bg-white/10"}`}
-            aria-label="Menü öffnen"
-          >
-            {mobileMenuOpen ? (
-              <X className={`w-6 h-6 transition-colors ${scrolled ? "text-foreground" : "text-white dark:text-foreground"}`} />
-            ) : (
-              <Menu className={`w-6 h-6 transition-colors ${scrolled ? "text-foreground" : "text-white dark:text-foreground"}`} />
-            )}
-          </button>
-        </div>
+        {/* Mobile menu button removed */}
       </div>
-
-      {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-40 md:hidden"
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          <div
-            className="absolute top-0 right-0 w-64 h-full bg-background/95 backdrop-blur-lg shadow-2xl transform translate-x-0 transition-transform duration-300"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="p-6 space-y-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-3 px-4 rounded-lg font-medium hover:bg-accent transition-colors text-foreground"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <div className="pt-4 border-t border-accent mt-4">
-                <ThemeToggle onClick={() => setMobileMenuOpen(false)} forceLightIcon={true} />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   );
 }
