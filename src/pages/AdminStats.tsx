@@ -6,10 +6,10 @@ export default function AdminStats() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Zähler abrufen (nur für dich als Admin)
-    fetch('/api/admin/counter')
+    // Zähler aus lokaler Datei lesen (falls kein Backend verfügbar)
+    fetch('/counter.json')
       .then((res) => {
-        if (!res.ok) throw new Error('Nicht autorisiert');
+        if (!res.ok) throw new Error('Zähler-Datei nicht gefunden');
         return res.json();
       })
       .then((data) => {
@@ -17,7 +17,7 @@ export default function AdminStats() {
         setLoading(false);
       })
       .catch((err) => {
-        setError(err.message);
+        setError('Zähler-Datei nicht gefunden. Bitte Backend starten.');
         setLoading(false);
       });
   }, []);
