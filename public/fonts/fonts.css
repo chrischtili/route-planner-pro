@@ -5,8 +5,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
-       local('Arial'), local('Helvetica'), local('sans-serif');
+  src: local('Arial'), local('Helvetica'), local('sans-serif');
 }
 
 @font-face {
@@ -14,8 +13,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'),
-       local('Arial'), local('Helvetica'), local('sans-serif');
+  src: local('Arial'), local('Helvetica'), local('sans-serif');
 }
 
 @font-face {
@@ -23,8 +21,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
-       local('Arial Bold'), local('Helvetica Bold'), local('sans-serif');
+  src: local('Arial Bold'), local('Helvetica Bold'), local('sans-serif');
 }
 
 @font-face {
@@ -32,8 +29,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Source Serif Pro Regular'), local('SourceSerifPro-Regular'),
-       local('Georgia'), local('Times New Roman'), local('serif');
+  src: local('Georgia'), local('Times New Roman'), local('serif');
 }
 
 @font-face {
@@ -41,8 +37,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Source Code Pro Regular'), local('SourceCodePro-Regular'),
-       local('Menlo'), local('Monaco'), local('monospace');
+  src: local('Menlo'), local('Monaco'), local('monospace');
 }
 
 @font-face {
@@ -50,8 +45,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Inter Regular'), local('Inter-Regular'),
-       local('Arial'), local('Helvetica'), local('sans-serif');
+  src: local('Arial'), local('Helvetica'), local('sans-serif');
 }
 
 @font-face {
@@ -59,8 +53,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local('Inter Medium'), local('Inter-Medium'),
-       local('Arial'), local('Helvetica'), local('sans-serif');
+  src: local('Arial'), local('Helvetica'), local('sans-serif');
 }
 
 @font-face {
@@ -68,8 +61,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: local('Inter SemiBold'), local('Inter-SemiBold'),
-       local('Arial'), local('Helvetica'), local('sans-serif');
+  src: local('Arial'), local('Helvetica'), local('sans-serif');
 }
 
 @font-face {
@@ -77,8 +69,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Inter Bold'), local('Inter-Bold'),
-       local('Arial Bold'), local('Helvetica Bold'), local('sans-serif');
+  src: local('Arial Bold'), local('Helvetica Bold'), local('sans-serif');
 }
 
 @font-face {
@@ -86,6 +77,5 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('DM Serif Display Regular'), local('DMSerifDisplay-Regular'),
-       local('Georgia'), local('Times New Roman'), local('serif');
+  src: local('Georgia'), local('Times New Roman'), local('serif');
 }
