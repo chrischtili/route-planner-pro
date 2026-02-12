@@ -1,4 +1,4 @@
-import { useState, useRef, Suspense } from "react";
+import { useState, useRef, Suspense, lazy } from "react";
 import { Route, RotateCcw, MapPin, ArrowUp, Bot, Settings2, Truck, Bed, Heart, FileText, ChevronLeft, ChevronRight, Sparkles, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FormData, AISettings, initialFormData, initialAISettings } from "@/types/routePlanner";
@@ -26,10 +26,10 @@ import { AnchorNavigation } from "./AnchorNavigation";
 import { Navbar } from "./Navbar";
 
 // Dynamische Importe für nicht kritische Komponenten
-const DynamicFeaturesSection = React.lazy(() => import("./FeaturesSection"));
-const DynamicTestimonialsSection = React.lazy(() => import("./TestimonialsSection"));
-const DynamicRouteExampleSection = React.lazy(() => import("./RouteExampleSection"));
-const DynamicFAQSection = React.lazy(() => import("./FAQSection"));
+const DynamicFeaturesSection = lazy(() => import("./FeaturesSection"));
+const DynamicTestimonialsSection = lazy(() => import("./TestimonialsSection"));
+const DynamicRouteExampleSection = lazy(() => import("./RouteExampleSection"));
+const DynamicFAQSection = lazy(() => import("./FAQSection"));
 
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
