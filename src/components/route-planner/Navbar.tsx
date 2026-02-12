@@ -86,27 +86,27 @@ export function Navbar() {
 
       {mobileMenuOpen && (
         <div
-          className="md:hidden bg-background/95 backdrop-blur-lg"
+          className="fixed inset-0 z-40 md:hidden"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            className="px-4 py-4 space-y-3"
+            className="absolute top-0 right-0 w-64 h-full bg-background/95 backdrop-blur-lg shadow-2xl transform translate-x-0 transition-transform duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 px-4 rounded-lg font-medium hover:bg-accent transition-colors ${
-                  scrolled ? "text-foreground" : "dark:text-foreground text-foreground"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="pt-2 border-t border-accent mt-2 px-4">
-              <ThemeToggle onClick={() => setMobileMenuOpen(false)} forceLightIcon={true} />
+            <div className="p-6 space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-3 px-4 rounded-lg font-medium hover:bg-accent transition-colors text-foreground"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="pt-4 border-t border-accent mt-4">
+                <ThemeToggle onClick={() => setMobileMenuOpen(false)} forceLightIcon={true} />
+              </div>
             </div>
           </div>
         </div>
