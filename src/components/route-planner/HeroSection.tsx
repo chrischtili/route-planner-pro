@@ -10,6 +10,8 @@ export function HeroSection() {
           src="/campingroute.webp"
           alt="Wohnmobil auf malerischer Bergstraße bei Sonnenuntergang"
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 dark:from-black/80 dark:to-black/70" />
       </div>
