@@ -66,7 +66,9 @@ export function Navbar() {
           <ThemeToggle />
         </div>
 
-        {/* Mobile menu button removed */}
+        <div className="md:hidden">
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );
