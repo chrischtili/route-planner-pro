@@ -314,9 +314,16 @@ async function _callAIAPIInternal(prompt: string, aiSettings: AISettings): Promi
   } catch (fetchError) {
     console.error('Network Error:', fetchError);
     if (fetchError instanceof TypeError && fetchError.message.includes('Failed to fetch')) {
-      throw new Error('Netzwerkfehler: Bitte überprüfe deine Internetverbindung');
+      // In Production-Umgebung könnte dies ein CORS-Fehler sein
+      if (process.env.NODE_ENV === 'production') {
+        throw new Error('CORS-Fehler: Die API blockiert Anfragen von dieser Domain. Dies funktioniert in der Entwicklungsumgebung, aber nicht in der Production. Bitte verwende einen Backend-Proxy oder kontaktiere den Support für eine Lösung.');
+      } else {
+        throw new Error('Netzwerkfehler: Bitte überprüfe deine Internetverbindung');
+      }
     } else if (fetchError instanceof Error && fetchError.message.includes('timeout')) {
       throw new Error('Timeout: Die Anfrage hat zu lange gedauert. Bitte versuche es später erneut.');
+    } else if (fetchError instanceof Error && (fetchError.message.includes('CORS') || fetchError.message.includes('cross-origin'))) {
+      throw new Error('CORS-Fehler: Die API blockiert Anfragen von dieser Domain. Bitte verwende einen API-Proxy oder kontaktiere den Support.');
     } else if (aiSettings.aiProvider === 'google') {
       throw new Error('Gemini API Fehler: Bitte überprüfe deinen API-Schlüssel und stelle sicher, dass er für Gemini freigeschaltet ist. Falls das Problem weiterhin besteht, könnte der Gemini-Server vorübergehend nicht verfügbar sein.');
     } else {
