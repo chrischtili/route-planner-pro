@@ -79,6 +79,26 @@ export function OutputSection({ output, isLoading, loadingMessage, aiModel, aiPr
     }
   };
 
+  const extractAndDownloadGPX = () => {
+    // Extrahiere GPX-Inhalt zwischen <?xml und </gpx>
+    const gpxMatch = output.match(/<\?xml[^>]*>[\s\S]*?<\/gpx>/);
+
+    if (gpxMatch) {
+      const gpxContent = gpxMatch[0];
+      const blob = new Blob([gpxContent], { type: 'application/gpx+xml' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'wohnmobil-route.gpx'; // Direkte .gpx Endung
+      a.click();
+
+      URL.revokeObjectURL(url);
+    } else {
+      alert('Keine GPX-Daten in der Antwort gefunden. Nicht alle KI-Modelle generieren GPX-Dateien.');
+    }
+  };
+
   const printOutput = () => {
     const printFrame = document.createElement('iframe');
     printFrame.style.position = 'absolute';
@@ -231,6 +251,14 @@ export function OutputSection({ output, isLoading, loadingMessage, aiModel, aiPr
                 <Printer className="h-5 w-5" />
                 Drucken / Als PDF speichern
               </Button>
+              
+              {/* GPX Download Button - nur anzeigen wenn GPX-Daten vorhanden sind */}
+              {output.includes('<?xml') && output.includes('</gpx>') && (
+                <Button onClick={extractAndDownloadGPX} variant="outline" size="lg" className="gap-2 min-h-[48px] px-6 py-3">
+                  <Route className="h-5 w-5" />
+                  GPX-Datei herunterladen
+                </Button>
+              )}
             </div>
           </>
         )}

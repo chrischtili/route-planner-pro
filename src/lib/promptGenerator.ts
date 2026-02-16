@@ -191,7 +191,88 @@ Flexibilität:
 - Tools zur Optimierung: Empfehle Tools oder Apps, mit denen ich die Route unterwegs weiter optimieren oder anpassen kann (z. B. Routenplaner, Campingplatz-Apps, Verkehrs-Apps).
 
 Zusammenfassung: Fasse hier am Ende die wichtigsten Punkte der Route zusammen, damit ich einen schnellen Überblick habe. Betone dabei die Highlights und die wichtigsten Tipps für die Reise.
-GPX-Datei: Wenn möglich, generiere hier eine GPX-Datei mit den wichtigsten Wegpunkten der Route, damit ich sie in mein Navigationsgerät oder meine App importieren kann. Markiere die Datei als XML-Anhang, damit ich sie leicht herunterladen kann.
+
+GPX-Datei: Generiere ausschließlich die GPX-XML-Daten für diese Route. Verwende das GPX 1.1 Format mit den folgenden Anforderungen:
+
+XML-Deklaration: <?xml version="1.0" encoding="UTF-8"?>.
+GPX-Version: 1.1.
+Creator: "AI Route Planner".
+Füge sowohl einen Track (<trk>) für die durchgehende Route als auch einzelne Wegpunkte (<wpt>) für die Ziele ein.
+Enthaltene Wegpunkte: Startpunkt, alle Etappenziele, Übernachtungsorte und das Ziel.
+Jeder Wegpunkt muss lat/lon Koordinaten und einen beschreibenden Namen enthalten.
+Keine zusätzlichen Erklärungen oder Markdown-Formatierung – nur die reine XML.
+
+
+Beispielformat:
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="AI Route Planner" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Route von Karlsruhe nach Wismar und zurück über Weinregionen</name>
+  </metadata>
+  <!-- Wegpunkte als Markierungen -->
+  <wpt lat="49.0069" lon="8.4037">
+    <name>Start: Karlsruhe</name>
+  </wpt>
+  <wpt lat="50.1990" lon="10.0764">
+    <name>Etappe 1: Bad Kissingen (Knaus Camping)</name>
+  </wpt>
+  <wpt lat="51.7895" lon="11.1484">
+    <name>Etappe 2: Quedlinburg (Harz)</name>
+  </wpt>
+  <wpt lat="53.0768" lon="11.8617">
+    <name>Etappe 3: Perleberg</name>
+  </wpt>
+  <wpt lat="53.9185" lon="11.3835">
+    <name>Ziel: Zierow / Wismar (Stationär 7-14.6.)</name>
+  </wpt>
+  <wpt lat="52.5417" lon="11.9698">
+    <name>Rückreise 1: Tangermünde (Elbe)</name>
+  </wpt>
+  <wpt lat="51.2136" lon="11.7702">
+    <name>Rückreise 2: Freyburg (Unstrut Weinregion)</name>
+  </wpt>
+  <wpt lat="49.8656" lon="10.2263">
+    <name>Rückreise 3: Volkach (Mainschleife)</name>
+  </wpt>
+  <wpt lat="49.0069" lon="8.4037">
+    <name>Ende: Karlsruhe</name>
+  </wpt>
+  <!-- Route als Track -->
+  <trk>
+    <name>Route von Karlsruhe nach Wismar und zurück</name>
+    <trkseg>
+      <trkpt lat="49.0069" lon="8.4037">
+        <name>Start: Karlsruhe</name>
+      </trkpt>
+      <trkpt lat="50.1990" lon="10.0764">
+        <name>Etappe 1: Bad Kissingen (Knaus Camping)</name>
+      </trkpt>
+      <trkpt lat="51.7895" lon="11.1484">
+        <name>Etappe 2: Quedlinburg (Harz)</name>
+      </trkpt>
+      <trkpt lat="53.0768" lon="11.8617">
+        <name>Etappe 3: Perleberg</name>
+      </trkpt>
+      <trkpt lat="53.9185" lon="11.3835">
+        <name>Ziel: Zierow / Wismar (Stationär 7-14.6.)</name>
+      </trkpt>
+      <trkpt lat="52.5417" lon="11.9698">
+        <name>Rückreise 1: Tangermünde (Elbe)</name>
+      </trkpt>
+      <trkpt lat="51.2136" lon="11.7702">
+        <name>Rückreise 2: Freyburg (Unstrut Weinregion)</name>
+      </trkpt>
+      <trkpt lat="49.8656" lon="10.2263">
+        <name>Rückreise 3: Volkach (Mainschleife)</name>
+      </trkpt>
+      <trkpt lat="49.0069" lon="8.4037">
+        <name>Ende: Karlsruhe</name>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
+
+
 
 `;
 }
