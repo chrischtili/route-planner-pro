@@ -54,7 +54,6 @@ export function Navbar({ onStartPlanning }: NavbarProps) {
   const navLinks = [
     { label: "Features", href: "/#features" },
     { label: "Beispielroute", href: "/#example-route" },
-    { label: "Planer", href: "/#planner" },
     { label: "FAQ", href: "/#faq" },
   ];
 

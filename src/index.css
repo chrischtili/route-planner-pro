@@ -10,6 +10,35 @@
 
 /* Fonts - Fallback auf Systemschriftarten für DSGVO-Compliance */
 
+/* Typing Animation Cursor */
+.blink-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: white;
+  animation: blink 1s step-end infinite;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: white;
+  }
+}
+
+.dark .blink-cursor {
+  background-color: #f59b0a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blink-cursor {
+    background-color: #f59b0a;
+  }
+}
+
 :root {
   --font-display: Georgia, 'Times New Roman', Times, serif;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;

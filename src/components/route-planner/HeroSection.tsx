@@ -1,11 +1,66 @@
 import { MapPin, Compass } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 interface HeroSectionProps {
   onStartPlanning?: () => void;
 }
 
 export function HeroSection({ onStartPlanning }: HeroSectionProps) {
+  // Typing Animation State
+  const [displayedText, setDisplayedText] = useState({
+    line1: "",
+    line2: "",
+    line3: ""
+  });
+  const [showCursor, setShowCursor] = useState(true);
+
+  const fullText = {
+    line1: "Plane deine perfekte Wohnmobil-Reise mit KI-gestützter Routenplanung.",
+    line2: "Unser intelligenter Prompt-Generator erstellt mit DEINER KI maßgeschneiderte",
+    line3: "Empfehlungen für Übernachtungen, Aktivitäten und versteckte Juwelen."
+  };
+
+  useEffect(() => {
+    const typeText = async () => {
+      // Line 1
+      for (let i = 0; i <= fullText.line1.length; i++) {
+        setDisplayedText(prev => ({
+          ...prev,
+          line1: fullText.line1.substring(0, i)
+        }));
+        await new Promise(resolve => setTimeout(resolve, 30));
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      // Line 2
+      for (let i = 0; i <= fullText.line2.length; i++) {
+        setDisplayedText(prev => ({
+          ...prev,
+          line2: fullText.line2.substring(0, i)
+        }));
+        await new Promise(resolve => setTimeout(resolve, 30));
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      // Line 3
+      for (let i = 0; i <= fullText.line3.length; i++) {
+        setDisplayedText(prev => ({
+          ...prev,
+          line3: fullText.line3.substring(0, i)
+        }));
+        await new Promise(resolve => setTimeout(resolve, 30));
+      }
+
+      // Cursor entfernen, wenn Animation fertig ist
+      setShowCursor(false);
+    };
+
+    typeText();
+  }, []);
+
   return (
     <section className="relative min-h-screen md:h-[90vh] flex items-center justify-center overflow-hidden pt-20" id="home">
       {/* Background Image */}
@@ -43,15 +98,22 @@ export function HeroSection({ onStartPlanning }: HeroSectionProps) {
           Camping Route
         </motion.h1>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-xl md:text-2xl text-white/80 dark:text-foreground/80 font-light mb-16 max-w-2xl mx-auto pt-10"
+          className="text-center mb-16 max-w-2xl mx-auto pt-10"
         >
-          Plane deine perfekte Wohnmobil-Reise mit KI-gestützter Routenplanung
-          und intelligenten Empfehlungen.
-        </motion.p>
+          <p className="text-xl md:text-2xl text-white/80 dark:text-foreground/80 font-light mb-2 min-h-[3rem]">
+            {displayedText.line1}{showCursor && <span className="blink-cursor">|</span>}
+          </p>
+          <p className="text-lg md:text-xl text-white/70 dark:text-foreground/70 font-light mb-1 min-h-[2.5rem]">
+            {displayedText.line2}
+          </p>
+          <p className="text-base md:text-lg text-white/60 dark:text-foreground/60 font-light min-h-[2rem]">
+            {displayedText.line3}
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
