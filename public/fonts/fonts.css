@@ -1,81 +1,21 @@
 /* Fallback auf Systemschriftarten für DSGVO-Compliance */
 
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Arial'), local('Helvetica'), local('sans-serif');
+/* Standard-Schriftarten für das Projekt */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', Times, serif;
+  --font-mono: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Arial'), local('Helvetica'), local('sans-serif');
+/* Spezifische Schriftart-Zuweisungen */
+body {
+  font-family: var(--font-sans);
 }
 
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Arial Bold'), local('Helvetica Bold'), local('sans-serif');
+code, pre {
+  font-family: var(--font-mono);
 }
 
-@font-face {
-  font-family: 'Source Serif Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Georgia'), local('Times New Roman'), local('serif');
-}
-
-@font-face {
-  font-family: 'Source Code Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Menlo'), local('Monaco'), local('monospace');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Arial'), local('Helvetica'), local('sans-serif');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Arial'), local('Helvetica'), local('sans-serif');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Arial'), local('Helvetica'), local('sans-serif');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Arial Bold'), local('Helvetica Bold'), local('sans-serif');
-}
-
-@font-face {
-  font-family: 'DM Serif Display';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Georgia'), local('Times New Roman'), local('serif');
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
 }

@@ -39,7 +39,7 @@ const stages = [
 
 export function RouteExampleSection() {
   return (
-    <section id="example-route" className="py-24 px-4 bg-[rgb(230,225,215)] dark:bg-gray-700" id="example-route">
+    <section id="example-route" className="py-24 px-4 bg-[rgb(230,225,215)] dark:bg-gray-700">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
