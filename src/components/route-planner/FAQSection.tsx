@@ -8,6 +8,43 @@ import { motion } from "framer-motion";
 
 const faqs = [
   {
+    q: "Warum speziell für Wohnmobile?",
+    a: (
+      <div>
+        <p className="mb-4"><strong>Der einzige KI-Routenplaner speziell für Wohnmobile!</strong></p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <span>🎯</span> Präzise Filter
+            </h4>
+            <ul className="list-disc list-inside space-y-2 text-sm">
+              <li>Fahrzeugdaten (Größe, Gewicht)</li>
+              <li>Budget (günstig bis premium)</li>
+              <li>Interessen (Natur, Stadt, Familie)</li>
+            </ul>
+          </div>
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <span>🗺️</span> Intelligente Routen
+            </h4>
+            <ul className="list-disc list-inside space-y-2 text-sm">
+              <li>Stellplätze nach deinen Kriterien</li>
+              <li>Lokale Attraktionen</li>
+              <li>Optimale Etappenplanung</li>
+            </ul>
+          </div>
+        </div>
+        <div className="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-4">
+          <p className="flex items-center gap-2 mb-2">
+            <span>💡</span>
+            <strong>Transparenter Prozess</strong>
+          </p>
+          <p className="text-sm">Volle Kontrolle - keine "Black Box" Ergebnisse!</p>
+        </div>
+      </div>
+    ),
+  },
+  {
     q: "Ist Camping Route kostenlos?",
     a: (
       <div className="space-y-4">
@@ -29,8 +66,9 @@ const faqs = [
             </h4>
             <ul className="list-disc list-inside space-y-2 text-sm">
               <li>Direkte Routengenerierung</li>
-              <li>API-Kosten (~5-12 Cent)</li>
+              <li>API-Kosten (ca. 5-10 Cent)</li>
               <li>Schnellere Ergebnisse</li>
+              <li><strong>GPX-Export inklusive</strong></li>
             </ul>
           </div>
         </div>
@@ -45,7 +83,7 @@ const faqs = [
     ),
   },
   {
-    q: "Welches KI-Modell sollte ich wählen?",
+    q: "Welches KI-Modell ist am besten für mich?",
     a: (
       <div>
         <p className="mb-4"><strong>Empfehlung:</strong> Google Gemini 3 Pro Preview</p>
@@ -127,44 +165,63 @@ const faqs = [
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-orange-50 dark:bg-orange-900 p-4 rounded-lg text-center">
-            <h4 className="font-semibold mb-3">Ohne API (kostenlos)</h4>
+            <h4 className="font-semibold mb-3">Ohne API</h4>
             <ul className="list-disc list-inside space-y-2 text-sm text-left">
               <li>Optimierter Prompt</li>
-              <li>Für deine KI</li>
+              <li>Für deine eigene KI</li>
               <li>Volle Kontrolle</li>
-              <li>Keine Kosten</li>
+              <li>Keine zusätzlichen Kosten</li>
             </ul>
           </div>
           <div className="bg-green-50 dark:bg-green-900 p-4 rounded-lg text-center">
-            <h4 className="font-semibold mb-3">Mit API (~8-12 Cent)</h4>
+            <h4 className="font-semibold mb-3">Mit API (ca. 5-10 Cent)</h4>
             <ul className="list-disc list-inside space-y-2 text-sm text-left">
               <li>Direkte Routengenerierung</li>
               <li>Fertige Route</li>
               <li>Schnelleres Ergebnis</li>
               <li>API-Kosten</li>
+              <li><strong>GPX-Datei als Download</strong></li>
             </ul>
           </div>
         </div>
-        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mt-4">
+        <div className="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-4">
           <p className="mb-2">
-            <strong>Tipp</strong>
+            <strong>📥 GPX-Export (nur mit API)</strong>
           </p>
-          <p className="text-sm">Probiere zuerst die kostenlose Version aus!</p>
+          <p className="text-sm">
+            Bei Nutzung der KI-Generierung mit API-Schlüssel wird automatisch eine GPX-Datei mit allen Wegpunkten generiert, die du direkt herunterladen kannst.
+          </p>
         </div>
       </div>
     ),
   },
+
   {
     q: "Wie werden meine Daten geschützt?",
     a: (
       <div>
-        <p className="mb-3"><strong>100% lokal - 100% sicher!</strong></p>
-        <ul className="list-disc list-inside space-y-2">
-          <li><strong>Keine Cloud-Speicherung</strong></li>
-          <li><strong>Keine Tracking-Cookies</strong></li>
-          <li><strong>DSGVO-konform</strong></li>
-          <li><strong>Offline-fähig</strong></li>
-        </ul>
+        <p className="mb-4"><strong>100% lokal - 100% sicher!</strong></p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <ul className="list-disc list-inside space-y-2 text-sm">
+              <li><strong>Keine Cloud-Speicherung</strong></li>
+              <li><strong>Keine Tracking-Cookies</strong></li>
+            </ul>
+          </div>
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <ul className="list-disc list-inside space-y-2 text-sm">
+              <li><strong>DSGVO-konform</strong></li>
+              <li><strong>Offline-fähig</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div className="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-4">
+          <p className="flex items-center gap-2 mb-2">
+            <span>ℹ️</span>
+            <strong>Transparenz</strong>
+          </p>
+          <p className="text-sm">Alle Daten bleiben auf deinem Gerät - wir speichern nichts!</p>
+        </div>
       </div>
     ),
   },
@@ -172,17 +229,27 @@ const faqs = [
     q: "Kann ich Routen offline nutzen?",
     a: (
       <div>
-        <p className="mb-3"><strong>Ja, komplett offline-fähig!</strong></p>
-        <ul className="list-disc list-inside space-y-2">
-          <li><strong>Exportieren</strong> als Text/PDF</li>
-          <li><strong>Speichern</strong> auf deinem Gerät</li>
-          <li><strong>Nutzen</strong> ohne Internet</li>
-          <li><strong>Teilen</strong> per E-Mail/Messenger</li>
-        </ul>
-        <div className="bg-yellow-50 dark:bg-yellow-900 p-3 rounded-lg mt-3">
-          <p className="text-sm">
-            <strong>Tipp:</strong> Lade Routen vor der Reise herunter!
+        <p className="mb-4"><strong>Ja, komplett offline-fähig!</strong></p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <ul className="list-disc list-inside space-y-2 text-sm">
+              <li><strong>Exportieren</strong> als Text/PDF</li>
+              <li><strong>Speichern</strong> auf deinem Gerät</li>
+            </ul>
+          </div>
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <ul className="list-disc list-inside space-y-2 text-sm">
+              <li><strong>Nutzen</strong> ohne Internet</li>
+              <li><strong>Teilen</strong> per E-Mail/Messenger</li>
+            </ul>
+          </div>
+        </div>
+        <div className="bg-yellow-50 dark:bg-yellow-900 p-4 rounded-lg mt-4">
+          <p className="flex items-center gap-2 mb-2">
+            <span>💡</span>
+            <strong>Tipp</strong>
           </p>
+          <p className="text-sm">Lade Routen vor der Reise herunter für unterwegs!</p>
         </div>
       </div>
     ),
@@ -253,7 +320,7 @@ export function FAQSection() {
                 className="rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden"
               >
                 <AccordionTrigger
-                  id={i === 1 ? "model-selection-faq" : undefined}
+                  id={i === 2 ? "model-selection-faq" : undefined}
                   className="font-normal text-foreground hover:no-underline py-5 text-lg md:text-xl font-sans px-6 w-full"
                 >
                   {faq.q}

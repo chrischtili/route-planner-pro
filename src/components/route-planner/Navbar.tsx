@@ -63,12 +63,25 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <a href="/#" onClick={(e) => {
+          e.preventDefault();
+          
+          // Auf Impressum/Datenschutz-Seiten zur Hauptseite navigieren
+          if (window.location.pathname === '/impressum' || window.location.pathname === '/datenschutz') {
+            navigate('/');
+            setTimeout(() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 100);
+          } else {
+            // Auf anderen Seiten einfach nach oben scrollen
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }} className="flex items-center gap-2 cursor-pointer">
           <img src="/favicon-original-final.svg" alt="Camping Route Logo" className="w-10 h-10 transition-colors dark:invert" />
           <span className={`font-bold text-xl transition-colors ${scrolled ? "text-foreground" : "text-white dark:text-foreground"}`}>
             Camping Route
           </span>
-        </Link>
+        </a>
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
