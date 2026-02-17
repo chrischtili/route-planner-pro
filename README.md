@@ -1,87 +1,126 @@
-# Camping Route - KI Wohnmobil Routenplaner
+# 🚐 Camping Route - KI Wohnmobil Routenplaner
 
-[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/chrischtili/campingrouteapp)
+[![Version](https://img.shields.io/badge/version-v0.2.20-blue.svg)](https://github.com/chrischtili/campingrouteapp)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/chrischtili/campingrouteapp/blob/main/LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://campingroute.app)
 
-## Über das Projekt
+**Der erste KI-Routenplaner speziell für Wohnmobile & Camper!**
 
-Camping Route ist ein KI-gestützter Wohnmobil-Routenplaner, der dir hilft, die perfekte Reise zu planen.
+👉 **Live Demo**: [https://campingroute.app](https://campingroute.app)
 
-👉 **Webseite**: [https://campingroute.app](https://campingroute.app)
+## 🌟 Highlights
 
-## Features
+- **KI-gestützte Routenplanung** mit GPX-Export für Navigationsgeräte
+- **Fahrzeugspezifische Filter** (Größe, Gewicht, Ausstattung)
+- **Stellplatz-Empfehlungen** nach Budget und Interessen
+- **100% kostenlose Basisversion** mit optionalem Premium-KI-Zugriff
+- **Offline-fähig** - Routen exportieren und unterwegs nutzen
 
-- ✅ Kompletter Routenplaner mit KI-Integration
-- ✅ 6 Hauptkategorien: Route, Fahrzeug, Übernachtung, Aktivitäten, KI-Einstellungen
-- ✅ Aktualisierte KI-Modellauswahl mit Preisinformationen
-- ✅ Responsive Design für alle Geräte
+## 📦 Features
 
-## Installation
+### 🎯 Routenplanung
+- 7-Schritte-Assistent für perfekte Planung
+- Etappenoptimierung mit Pausen und Alternativrouten
+- Echtzeit-KI-Generierung oder Prompt-Erstellung
+
+### 🚐 Fahrzeugintegration
+- Größe, Gewicht und Achslast-Berechnung
+- Kraftstoff- und Energiebedarf-Planung
+- Maut- und Tunnelvermeidung
+
+### 🏕️ Übernachtungen
+- Stellplatz-Suche nach Kriterien
+- Budget-Filter (günstig bis Premium)
+- Ausstattung (Strom, Wasser, Hunde erlaubt)
+
+### 📥 Export & Integration
+- **GPX-Datei-Download** für Navigationsgeräte (nur mit API)
+- PDF/HTML-Export für Reiseunterlagen
+- Druckfunktion mit Kartenansicht
+
+## 💻 Technische Details
+
+### Unterstützte KI-Modelle
+| Anbieter | Modelle | Preis pro Route |
+|----------|---------|-----------------|
+| Google | Gemini 3 Pro Preview | ~5-10 Cent |
+| OpenAI | GPT-5.2 | ~5-10 Cent |
+| Mistral | Mistral Large | ~5-10 Cent |
+
+### Tech-Stack
+- **Frontend**: React, TypeScript, Vite
+- **UI**: ShadCN, Tailwind CSS
+- **Routing**: React Router v6
+- **Styling**: Dark/Light Mode mit CSS Variables
+
+## 🚀 Installation
 
 ### Voraussetzungen
-
 - Node.js 20.x oder neuer
 - npm oder yarn
+- Git
 
 ### Schritte
 
-1. Repository klonen:
 ```bash
+# Repository klonen
 git clone https://github.com/chrischtili/campingrouteapp.git
-```
+cd campingrouteapp
 
-2. Abhängigkeiten installieren:
-```bash
+# Abhängigkeiten installieren
 npm install
-```
 
-3. Entwicklungsserver starten:
-```bash
+# Entwicklungsserver starten
 npm run dev
-```
 
-4. Production Build erstellen:
-```bash
+# Production Build
 npm run build
 ```
 
-## Nutzung
+## 📖 Nutzung
 
-1. Öffne die Anwendung in deinem Browser
-2. Wähle deine Start- und Zielorte
-3. Konfiguriere deine Reiseoptionen
-4. Wähle ein KI-Modell (optional)
-5. Generiere deine Route
+### Schnellstart
+1. **Startseite öffnen** und auf "Route planen" klicken
+2. **Reisedaten eingeben** (Start, Ziel, Datum)
+3. **Fahrzeugdaten konfigurieren** (Größe, Gewicht)
+4. **KI-Modell wählen** (optional für direkte Generierung)
+5. **Route generieren** und als GPX exportieren
 
-## KI-Integration
+### Tipps
+- **Kostenlos nutzen**: Ohne API-Schlüssel erhältst du einen optimierten Prompt
+- **Premium-Features**: Mit API-Schlüssel (~5-10 Cent/Route) erhältst du:
+  - Direkte KI-Generierung
+  - GPX-Datei mit allen Wegpunkten
+  - Schnellere Ergebnisse
 
-Die Anwendung unterstützt folgende KI-Anbieter:
+## 🔮 Roadmap
 
-- OpenAI (GPT-5.2, GPT-5, GPT-5 Mini, GPT-5 Nano)
-- Anthropic (Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 3)
-- Mistral AI (Mistral Large, Mistral Small, Pixtral 12B)
-- Google (Gemini 3 Pro Preview, Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash-Lite)
+### 📌 Geplant
+- [ ] Benutzerkonten mit Routenspeicherung
+- [ ] Community-Features (Route teilen & bewerten)
+- [ ] Echtzeit-Stellplatzverfügbarkeit
+- [ ] Integration mit Navigations-Apps (Komoot, Garmin)
 
-## Lizenz
+### 🎯 Vision
+- **Beste KI für Wohnmobilisten** werden
+- **Offline-Karten** integrieren
+- **Europaweite Stellplatz-Datenbank** aufbauen
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe [LICENSE](LICENSE) für Details.
+## 🤝 Beitragende
 
-## Beitragende
-
+- [chrischtili](https://github.com/chrischtili) - Lead Developer
 - [Mistral Vibe](https://mistral.ai) - KI-Assistent
 
-## Roadmap
+## 📄 Lizenz
 
-- [ ] Benutzerkonten und Speicherfunktion
-- [ ] Weitere KI-Modelle und Anbieter
-- [ ] Exportfunktion für Routen
-- [ ] Integration mit Google Maps
-- [ ] Community-Features
+MIT License - [Details](LICENSE)
 
-## Support
+## 💬 Support
 
-Für Fragen oder Feedback, öffne bitte ein Issue auf GitHub.
+🐛 **Bugs melden**: [GitHub Issues](https://github.com/chrischtili/campingrouteapp/issues)
+💡 **Feature-Wünsche**: [Discussions](https://github.com/chrischtili/campingrouteapp/discussions)
+📧 **Kontakt**: info@campingroute.app
 
 ---
 
-© 2026 Camping Route - Erstellt mit ❤️ für Wohnmobil-Enthusiasten
+© 2024 Camping Route - Erstellt mit ❤️ für Wohnmobil-Enthusiasten
