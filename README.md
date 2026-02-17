@@ -1,6 +1,6 @@
 # 🚐 Camping Route - KI Wohnmobil Routenplaner
 
-[![Version](https://img.shields.io/badge/version-v0.2.20-blue.svg)](https://github.com/chrischtili/campingrouteapp)
+[![Version](https://img.shields.io/badge/version-v0.2.21-blue.svg)](https://github.com/chrischtili/campingrouteapp)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/chrischtili/campingrouteapp/blob/main/LICENSE)
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://campingroute.app)
 
