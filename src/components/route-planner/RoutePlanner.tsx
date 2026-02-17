@@ -44,6 +44,7 @@ export function RoutePlanner() {
   const [aiModel, setAiModel] = useState<string>('');
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
+  const [showForm, setShowForm] = useState<boolean>(false); // Formular zunächst versteckt
   const outputSectionRef = useRef<HTMLDivElement>(null);
   const aiSettingsSectionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
@@ -89,10 +90,12 @@ export function RoutePlanner() {
         setCompletedSteps([...completedSteps, currentStep]);
       }
       
-      // Auf mobilen Geräten zum Formular-Anfang scrollen
-      if (window.innerWidth <= 768 && formRef.current) {
-        formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      // Immer zum Formular-Anfang scrollen für bessere Nutzerführung
+      setTimeout(() => {
+        if (formRef.current) {
+          formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 50);
     }
   };
 
@@ -238,10 +241,32 @@ export function RoutePlanner() {
   return (
     <main className="min-h-screen" style={{ backgroundColor: 'rgb(250, 244, 235)' }} id="main-content">
       {/* Navbar */}
-      <Navbar />
+      <Navbar onStartPlanning={() => {
+        setShowForm(true);
+        setTimeout(() => {
+          const plannerSection = document.getElementById('planner');
+          if (plannerSection) {
+            plannerSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }, 100);
+      }} />
       
       {/* Hero Section */}
-      <HeroSection />
+      <HeroSection onStartPlanning={() => {
+        setShowForm(true);
+        setTimeout(() => {
+          const plannerSection = document.getElementById('planner');
+          if (plannerSection) {
+            plannerSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }, 100);
+      }} />
 
       {/* Features Section - Dynamisch geladen */}
       <Suspense fallback={<div className="h-96 bg-gray-100 dark:bg-gray-800"></div>}>
@@ -258,9 +283,44 @@ export function RoutePlanner() {
         <DynamicRouteExampleSection />
       </Suspense>
 
-      {/* Main Content - Step-by-Step Assistant */}
-      <section id="planner" className="py-24 px-4 bg-[rgb(252,250,248)] dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto">
+      {/* Call-to-Action - Formular aufrufen */}
+      {!showForm && (
+        <section className="py-16 px-4 bg-[rgb(252,250,248)] dark:bg-gray-800">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Button
+                onClick={() => {
+                  setShowForm(true);
+                  setTimeout(() => {
+                    const plannerSection = document.getElementById('planner');
+                    if (plannerSection) {
+                      plannerSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }
+                  }, 100);
+                }}
+                className="gap-2 bg-[#F59B0A] hover:bg-[#E67E22] text-white dark:text-foreground text-lg px-8 py-6 rounded-full shadow-lg"
+                size="lg"
+              >
+                <Route className="w-6 h-6" />
+                Jetzt Route planen
+              </Button>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* Main Content - Step-by-Step Assistant - Beginnt am oberen Bildschirmrand */}
+      {showForm && (
+        <section id="planner" className="py-24 px-4 bg-[rgb(252,250,248)] dark:bg-gray-800">
+          <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -426,8 +486,8 @@ export function RoutePlanner() {
             </div>
           </div>
 
-            {/* Navigation Buttons - Nur anzeigen, wenn wir uns in einem der Schritte befinden */}
-            {currentStep <= steps.length && (
+            {/* Navigation Buttons - Nur anzeigen, wenn Formular sichtbar und wir uns in einem der Schritte befinden */}
+            {showForm && currentStep <= steps.length && (
               <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
                 {currentStep > 1 && (
                   <Button
@@ -481,7 +541,8 @@ export function RoutePlanner() {
               useDirectAI={aiSettings.useDirectAI}
             />
           </div>
-      </section>
+        </section>
+      )}
 
       {/* FAQ Section - Dynamisch geladen */}
       <Suspense fallback={<div className="h-96 bg-gray-50 dark:bg-gray-700"></div>}>

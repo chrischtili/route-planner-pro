@@ -36,7 +36,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 px-4 bg-[rgb(250,244,235)] dark:bg-gray-900" id="features">
+    <section className="py-24 px-4 bg-[rgb(230,225,215)] dark:bg-gray-700" id="features">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

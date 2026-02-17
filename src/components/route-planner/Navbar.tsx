@@ -3,7 +3,11 @@ import { useState, useEffect, useRef } from "react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Link, useNavigate } from "react-router-dom";
 
-export function Navbar() {
+interface NavbarProps {
+  onStartPlanning?: () => void;
+}
+
+export function Navbar({ onStartPlanning }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const featuresSectionRef = useRef(null);
 
@@ -99,13 +103,12 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href="/#planner"
-            onClick={(e) => handleNavLinkClick(e, "/#planner")}
+          <button
+            onClick={() => onStartPlanning?.()}
             className={`px-5 py-2 rounded-full ${scrolled ? "bg-gradient-to-r from-[#F59B0A] to-[#E67E22] text-white" : "bg-white text-foreground border border-foreground/20 dark:bg-foreground dark:text-background dark:border-background/20"} font-semibold text-sm shadow-soft hover:scale-105 transition-transform md:ml-4`}
           >
             Jetzt planen
-          </a>
+          </button>
           <ThemeToggle />
         </div>
 

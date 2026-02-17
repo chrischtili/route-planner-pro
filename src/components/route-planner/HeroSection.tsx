@@ -1,7 +1,11 @@
 import { MapPin, Compass } from "lucide-react";
 import { motion } from "framer-motion";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onStartPlanning?: () => void;
+}
+
+export function HeroSection({ onStartPlanning }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen md:h-[90vh] flex items-center justify-center overflow-hidden pt-20" id="home">
       {/* Background Image */}
@@ -55,13 +59,13 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <a
-            href="#planner"
+          <button
+            onClick={() => onStartPlanning?.()}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#F59B0A] to-[#E67E22] text-white dark:text-foreground font-semibold text-lg shadow-lg hover:scale-105 transition-transform duration-200"
           >
             <MapPin className="w-5 h-5" />
             Route jetzt planen
-          </a>
+          </button>
           <a
             href="#example-route"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/30 text-white dark:text-foreground font-medium text-lg hover:bg-white/10 dark:hover:bg-foreground/10 transition-colors duration-200"
