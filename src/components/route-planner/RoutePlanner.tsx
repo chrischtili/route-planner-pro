@@ -172,10 +172,16 @@ export function RoutePlanner() {
         // und keinen Schritt mehr als aktiv setzen
         setCurrentStep(steps.length + 1); // Setze auf einen Schritt nach dem letzten
         
-        // Zur OutputSection scrollen
+        // Zur OutputSection scrollen (mit Offset, damit Überschrift sichtbar bleibt)
         setTimeout(() => {
           if (outputSectionRef.current) {
-            outputSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const offset = 120; // Scrollt 120px über die Oberkante, damit Überschrift sichtbar bleibt
+            const elementPosition = outputSectionRef.current.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
           }
         }, 100);
       } else {
@@ -193,10 +199,16 @@ export function RoutePlanner() {
         // Nach erfolgreicher Generierung: keinen Schritt mehr als aktiv setzen
         setCurrentStep(steps.length + 1); // Setze auf einen Schritt nach dem letzten
         
-        // Zur OutputSection scrollen
+        // Zur OutputSection scrollen (mit Offset, damit Überschrift sichtbar bleibt)
         setTimeout(() => {
           if (outputSectionRef.current) {
-            outputSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const offset = 120;
+            const elementPosition = outputSectionRef.current.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
           }
         }, 100);
       }
@@ -210,10 +222,16 @@ export function RoutePlanner() {
         setAIError('Fehler beim Aufruf der KI. Bitte überprüfe deinen API-Schlüssel und deine Internetverbindung.');
       }
       
-      // Auch bei Fehlern zur OutputSection scrollen, damit der Benutzer den Fehler sieht
+      // Auch bei Fehlern zur OutputSection scrollen (mit Offset)
       setTimeout(() => {
         if (outputSectionRef.current) {
-          outputSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const offset = 120;
+          const elementPosition = outputSectionRef.current.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
       }, 100);
     } finally {
@@ -426,44 +444,61 @@ export function RoutePlanner() {
             </div>
           </div>
 
-            {/* Navigation Buttons - Nur anzeigen, wenn wir uns in einem der Schritte befinden */}
+          {/* Visuelle Trennlinie zwischen Planung und Beispielroute */}
+          {currentStep === 7 && (
+            <div className="my-8">
+              <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+              <div className="text-center my-4">
+                <span className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                  Beispielansicht - Ihre Zusammenfassung
+                </span>
+              </div>
+              <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+            </div>
+          )}
+
+            {/* Navigation Buttons - Immer sichtbar am unteren Rand */}
             {currentStep <= steps.length && (
-              <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
-                {currentStep > 1 && (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={prevStep}
-                    className="gap-2 w-full md:w-auto rounded-full text-foreground"
-                  >
-                    <ChevronLeft className="h-4 w-4" />
-                    Zurück
-                  </Button>
-                )}
-                
-                <div className={`w-full flex ${currentStep > 1 ? 'md:w-auto justify-end' : 'justify-end'}`}>
-                  {currentStep < steps.length ? (
-                    <Button
-                      type="button"
-                      onClick={nextStep}
-                      disabled={!isStepValid()}
-                      className="gap-2 bg-[#F59B0A] hover:bg-[#E67E22] text-white dark:text-foreground w-full md:w-auto rounded-full"
-                    >
-                      Weiter
-                      <ChevronRight className="h-4 w-4" />
-                    </Button>
-                  ) : (
-                    <Button
-                      type="button"
-                      onClick={handleSubmit}
-                      size="lg"
-                      className="gap-2 px-4 md:px-6 bg-[#F59B0A] hover:bg-[#E67E22] text-white dark:text-foreground w-full md:w-auto rounded-full"
-                      disabled={isLoading || !formData.startPoint || !formData.destination || (aiSettings.useDirectAI && !isModelSelected())}
-                    >
-                      <MapPin className="h-5 w-5" />
-                      {aiSettings.useDirectAI ? 'Route Generieren' : 'Prompt Generieren'}
-                    </Button>
-                  )}
+              <div className="fixed bottom-0 left-0 right-0 md:relative p-4 bg-background border-t border-gray-200 dark:border-gray-700 z-10">
+                <div className="max-w-4xl mx-auto">
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                    {currentStep > 1 && (
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={prevStep}
+                        className="gap-2 w-full md:w-auto rounded-full text-foreground"
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                        Zurück
+                      </Button>
+                    )}
+                    
+                    <div className={`w-full flex ${currentStep > 1 ? 'md:w-auto justify-end' : 'justify-end'}`}>
+                      {currentStep < steps.length ? (
+                        <Button
+                          type="button"
+                          onClick={nextStep}
+                          disabled={!isStepValid()}
+                          className="gap-2 bg-[#F59B0A] hover:bg-[#E67E22] text-white dark:text-foreground w-full md:w-auto rounded-full"
+                        >
+                          Weiter
+                          <ChevronRight className="h-4 w-4" />
+                        </Button>
+                      ) : (
+                        <Button
+                          type="button"
+                          onClick={handleSubmit}
+                          size="lg"
+                          className="gap-2 px-4 md:px-6 bg-[#F59B0A] hover:bg-[#E67E22] text-white dark:text-foreground w-full md:w-auto rounded-full"
+                          disabled={isLoading || !formData.startPoint || !formData.destination || (aiSettings.useDirectAI && !isModelSelected())}
+                        >
+                          <MapPin className="h-5 w-5" />
+                          {aiSettings.useDirectAI ? 'Route Generieren' : 'Prompt Generieren'}
+                        </Button>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
