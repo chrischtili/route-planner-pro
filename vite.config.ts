@@ -80,7 +80,7 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    base: './',
+    base: '/',
     minify: 'terser',
     terserOptions: {
       compress: {
