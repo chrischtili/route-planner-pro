@@ -6,21 +6,19 @@ import { generatePrompt, callAIAPI } from "@/lib/promptGenerator";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
-// Statische Importe für wichtige UI-Teile
+// Statische Importe für ALLES was zum Formular gehört - SICHERHEIT GEHT VOR
 import { HeroSection } from "./HeroSection";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { AISettingsSection } from "./AISettingsSection";
+import { RouteSection } from "./RouteSection";
+import { RouteOptimizationSection } from "./RouteOptimizationSection";
+import { VehicleSection } from "./VehicleSection";
+import { AccommodationSection } from "./AccommodationSection";
+import { ActivitiesSection } from "./ActivitiesSection";
+import { OutputSection } from "./OutputSection";
 
-// Lazy Imports für die Formular-Sektionen
-const AISettingsSection = lazy(() => import("./AISettingsSection").then(m => ({ default: m.AISettingsSection })));
-const RouteSection = lazy(() => import("./RouteSection").then(m => ({ default: m.RouteSection })));
-const RouteOptimizationSection = lazy(() => import("./RouteOptimizationSection").then(m => ({ default: m.RouteOptimizationSection })));
-const VehicleSection = lazy(() => import("./VehicleSection").then(m => ({ default: m.VehicleSection })));
-const AccommodationSection = lazy(() => import("./AccommodationSection").then(m => ({ default: m.AccommodationSection })));
-const ActivitiesSection = lazy(() => import("./ActivitiesSection").then(m => ({ default: m.ActivitiesSection })));
-const OutputSection = lazy(() => import("./OutputSection").then(m => ({ default: m.OutputSection })));
-
-// Lazy Imports für Landingpage-Sektionen
+// Nur die Sektionen unter dem Formular bleiben Lazy
 const FeaturesSection = lazy(() => import("./FeaturesSection").then(m => ({ default: m.FeaturesSection })));
 const TestimonialsSection = lazy(() => import("./TestimonialsSection").then(m => ({ default: m.TestimonialsSection })));
 const RouteExampleSection = lazy(() => import("./RouteExampleSection").then(m => ({ default: m.RouteExampleSection })));
@@ -232,7 +230,7 @@ export function RoutePlanner() {
 
             {/* Form Steps */}
             <div className="p-8 min-h-[240px] scroll-mt-24" ref={formRef}>
-              <Suspense fallback={<div className="flex justify-center py-12"><Loader2 className="w-10 h-10 animate-spin text-primary" /></div>}>
+              <div className="space-y-6">
                 {currentStep === 1 && <AISettingsSection aiSettings={aiSettings} onAISettingsChange={handleAISettingsChange} aiError={aiError} />}
                 {currentStep === 2 && <RouteSection formData={formData} onChange={handleFormChange} />}
                 {currentStep === 3 && <RouteOptimizationSection formData={formData} onCheckboxChange={handleCheckboxChange} />}
@@ -249,7 +247,7 @@ export function RoutePlanner() {
                     </div>
                   </div>
                 )}
-              </Suspense>
+              </div>
             </div>
 
             {/* Navigation */}
@@ -271,17 +269,15 @@ export function RoutePlanner() {
           </div>
 
           <div className="mt-8 max-w-4xl mx-auto scroll-mt-24" ref={outputSectionRef}>
-            <Suspense fallback={null}>
-              <OutputSection
-                output={output}
-                isLoading={isLoading}
-                loadingMessage={loadingMessage}
-                aiModel={aiModel}
-                aiProvider={aiSettings.aiProvider}
-                aiError={aiError}
-                useDirectAI={aiSettings.useDirectAI}
-              />
-            </Suspense>
+            <OutputSection
+              output={output}
+              isLoading={isLoading}
+              loadingMessage={loadingMessage}
+              aiModel={aiModel}
+              aiProvider={aiSettings.aiProvider}
+              aiError={aiError}
+              useDirectAI={aiSettings.useDirectAI}
+            />
           </div>
         </section>
       )}
