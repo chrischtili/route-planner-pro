@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { useTranslation } from "react-i18next";
 
 // Dynamische Importe für nicht-kritische Seiten
 const Index = lazy(() => import("./pages/Index"));
@@ -33,6 +34,19 @@ if (typeof window !== 'undefined' && !('requestIdleCallback' in window)) {
 }
 
 const App = () => {
+  const { t, i18n } = useTranslation();
+
+  // Dynamically update SEO tags based on language
+  React.useEffect(() => {
+    document.title = t("seo.title");
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", t("seo.description"));
+    }
+    // Update lang attribute on html tag
+    document.documentElement.lang = i18n.language;
+  }, [t, i18n.language]);
+
   // Use requestIdleCallback for non-critical initialization
   React.useEffect(() => {
     const idleCallbackId = requestIdleCallback(() => {

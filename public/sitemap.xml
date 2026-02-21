@@ -1,26 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Hauptseite -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Hauptseite DE -->
   <url>
     <loc>https://campingroute.app/</loc>
-    <lastmod>2024-02-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://campingroute.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://campingroute.app/?lng=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://campingroute.app/"/>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Hauptseite EN -->
+  <url>
+    <loc>https://campingroute.app/?lng=en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://campingroute.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://campingroute.app/?lng=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://campingroute.app/"/>
+    <lastmod>2026-02-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- Impressum -->
+  <!-- Impressum DE -->
   <url>
     <loc>https://campingroute.app/impressum</loc>
-    <lastmod>2024-02-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://campingroute.app/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://campingroute.app/impressum?lng=en"/>
+    <lastmod>2026-02-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Impressum EN -->
+  <url>
+    <loc>https://campingroute.app/impressum?lng=en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://campingroute.app/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://campingroute.app/impressum?lng=en"/>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
   
-  <!-- Datenschutz -->
+  <!-- Datenschutz DE -->
   <url>
     <loc>https://campingroute.app/datenschutz</loc>
-    <lastmod>2024-02-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://campingroute.app/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://campingroute.app/datenschutz?lng=en"/>
+    <lastmod>2026-02-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Datenschutz EN -->
+  <url>
+    <loc>https://campingroute.app/datenschutz?lng=en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://campingroute.app/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://campingroute.app/datenschutz?lng=en"/>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
